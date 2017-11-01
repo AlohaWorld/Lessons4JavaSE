@@ -21,6 +21,10 @@ public class Test2dArray {
   byte[] temp = new byte[3];
 
   public Test2dArray() {
+    /*
+    D[0][0] = new String("aaa");
+    D[0][1] = new String("bbb");
+    */
     for (int i = 0; i < D.length; i++) {
       for (int j = 0; j < D[i].length; j++) {
         for (int k = 0; k < temp.length; k++) { // 创建aaa, bbb等字符串

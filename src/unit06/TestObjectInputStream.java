@@ -1,6 +1,7 @@
 package unit06;
 
 import java.io.*;
+import javax.swing.JButton;
 
 public class TestObjectInputStream {
 	public static void main(String[] args) throws ClassNotFoundException,
@@ -14,6 +15,11 @@ public class TestObjectInputStream {
 		double score = input.readDouble();
 		java.util.Date date = (java.util.Date) (input.readObject());
 		System.out.println(name + " " + score + " " + date);
+
+		
+	    JButton btn = (JButton) input.readObject();
+	    System.out.println("Button Name:" + btn.getText());
+	    
 
 		// Close output stream
 		input.close();

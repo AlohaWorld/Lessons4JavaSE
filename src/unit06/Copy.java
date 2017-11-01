@@ -46,7 +46,7 @@ public class Copy {
 
 		// Continuously read a byte from input and write it to output
 		int r;
-		while ((r = input.read()) != -1)
+		while ((r = input.read()) != -1) //Think: why use -1 as an indicator? why not 1? 
 			output.write((byte) r);
 
 		// Close streams

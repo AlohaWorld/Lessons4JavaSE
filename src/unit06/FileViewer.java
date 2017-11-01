@@ -5,6 +5,13 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
+/* 事件处理代码的写法步骤：
+ * Step 1. 写一个Listener类
+ * Step 2. 在Listener类中重写一个事件处理函数
+ * Step 3. 写一个界面类
+ * Step 4. 创建一个listener对象，并将它加到界面类的事件处理列表中
+ */
+
 public class FileViewer extends JFrame implements ActionListener {
 	// Button to view a file
 	private JButton jbtView = new JButton("View");
@@ -51,7 +58,7 @@ public class FileViewer extends JFrame implements ActionListener {
 		String inLine;
 
 		try {
-			// Create a buffered stream
+			// Create a Buffered File Reader
 			input = new BufferedReader(new FileReader(filename));
 
 			// Read a line and append the line to the text area
