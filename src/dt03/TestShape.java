@@ -20,7 +20,7 @@ public class TestShape {
     
     System.out.print("Please input what type of shape you want to create:");
     Scanner in = new Scanner(System.in);
-    String type = in.next();
+    String type = in.next;
         
     Shape s1 = t.createObject(type);
     

@@ -10,7 +10,7 @@ public class foo { //在所有类中可见，在其他包中可以用import导�
 	//@SuppressWarnings("unused")
    public static int x;
 	public static void main(String[] args) {
-	  int i;
+	  int i=0;
 	  JavaClass jClass = new JavaClass();
 	  System.out.println("JavaClass has been created");
 	  System.out.println("x="+x+" i="+i);

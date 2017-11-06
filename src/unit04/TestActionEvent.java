@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 /* 事件处理代码的写法步骤：
- * Step 1. 写一个Listener类
- * Step 2. 在Listener类中重写一个事件处理函数
- * Step 3. 写一个界面类
- * Step 4. 创建一个listener对象，并将它加到界面类的事件处理列表中
+ * Step1：写一个Listener类（实现ActionListener接口）
+ * Step2：在Listener中重写事件处理函数actionPerformed
+ * Step3：写一个界面类
+ * Step4：在界面类中创建Listener对象，并注册到界面类的事件处理列表中
  */
 
 class ButtonListener implements ActionListener { // Step 1
