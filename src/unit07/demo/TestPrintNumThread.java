@@ -42,6 +42,5 @@ class PrintNumThread extends Thread {
       }
       System.out.print("\n");
     }
-    this.notifyAll();
   }
 }
