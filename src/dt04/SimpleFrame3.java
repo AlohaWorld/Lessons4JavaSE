@@ -40,7 +40,7 @@ public class SimpleFrame3 {
 @SuppressWarnings("serial")
 // 1. 创建一个新类frame
 class MyFrame1 extends JFrame { 
-  Lane lane;
+  Lane[] lane = new Lane[4];
   public MyFrame1(String title) {
   // 3. 在frame对象中添加几个Lane对象
   }
@@ -51,12 +51,13 @@ class TimerListener implements ActionListener { //Step1 写一个Listener类（�
      * 但是只有界面类中才有 repaint() 函数用于通知JVM调用界面类的paintComponent()函数执行重绘操作
      * 怎么修改本类才能使得本函数中能够调用界面类的repaint()？
      */
-    // repaint();
+     p1.repaint();
+     p2.repaint();
   }
 }
 
 // 2. 创建一个新类Lane，Lane从JPanel继承，我们将在Lane中绘制小车
-class Lane /*补全代码*/ { //Step3 创建一个界面类
+class Lane extends JPanel/*补全代码*/ { //Step3 创建一个界面类
   private int offset = 0;   // 重绘矩形时，距离初始位置的偏移量
   protected Timer timer;
   public Lane() {
@@ -66,6 +67,7 @@ class Lane /*补全代码*/ { //Step3 创建一个界面类
   }
 
   //在Panel中绘制小车，小车位置要能不断发生变化
+  @Override
   protected void paintComponent(Graphics g) { //重写JPanel中的paintComponent()函数
     super.paintComponent(g);
     //补全代码，绘制小车，使得小车位置与offset有关

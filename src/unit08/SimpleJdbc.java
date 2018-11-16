@@ -14,14 +14,19 @@ public class SimpleJdbc {
       ("jdbc:mysql://localhost/javabook", "scott", "tiger");
     System.out.println("Database connected");
 
-
+    Thread t = new DBThread();
+    t.start();
+    
+    sleep(1000);
     // Create a statement
     Statement statement = connection.createStatement();
 
     // Execute a statement
     ResultSet resultSet = statement.executeQuery
-      ("select firstName, mi, lastName from Student where lastName "
-        + " = 'Smith'");
+//      ("select firstName, mi, lastName from Student where lastName "
+//        + " = 'Smith'");
+        ("select * from Student where lastName "
+            + " = 'Smith'");
 
     // Iterate through the result and print the student names
     while (resultSet.next())
@@ -30,7 +35,20 @@ public class SimpleJdbc {
 
     // Close the connection
     connection.close();
-    
+  }
+}
 
+class DBThread extends Thread {
+  public void run() {
+    // Load the JDBC driver
+
+    // Establish a connection
+
+    // Create a statement
+
+    // Execute a statement
+    statement.executeUpdate("update Course set "
+        + "numOfScores=4 where CourseId=44411119");
+    // Close the connection
   }
 }

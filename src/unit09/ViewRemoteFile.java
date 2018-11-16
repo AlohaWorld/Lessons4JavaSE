@@ -39,6 +39,7 @@ public class ViewRemoteFile extends JApplet implements ActionListener {
 	}
 
 	/** Handle the "View" button */
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == jbtView)
 			showFile();

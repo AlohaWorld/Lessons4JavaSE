@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+@SuppressWarnings("serial")
 public class AddressBook extends JFrame implements ActionListener {
 	// Specify the size of five string fields in the record
 	final static int NAME_SIZE = 32;

@@ -28,5 +28,11 @@ public class CircleWithStaticMembers {
   double getArea() {
     return radius * radius * Math.PI;
   }
+  
+  @Override
+  protected void finalize() {
+    numberOfObjects--; 
+    System.out.println(numberOfObjects);
+  }
 }
 

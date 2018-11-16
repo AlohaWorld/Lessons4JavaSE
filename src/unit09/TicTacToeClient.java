@@ -7,6 +7,7 @@ import javax.swing.border.LineBorder;
 import java.io.*;
 import java.net.*;
 
+@SuppressWarnings("serial")
 public class TicTacToeClient extends JApplet implements Runnable, TicTacToeConstants {
   // Indicate whether the player has the turn
   private boolean myTurn = false;

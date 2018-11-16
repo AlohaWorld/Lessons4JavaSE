@@ -13,7 +13,12 @@ import javax.swing.*;
  */
 
 public class FileViewer extends JFrame implements ActionListener {
-	// Button to view a file
+	/**
+   * 
+   */
+  private static final long serialVersionUID = -601212416945891844L;
+
+  // Button to view a file
 	private JButton jbtView = new JButton("View");
 
 	// Text field to the receive file name

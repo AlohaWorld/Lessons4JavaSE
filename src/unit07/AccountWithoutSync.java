@@ -44,7 +44,7 @@ public class AccountWithoutSync {
       // This delay is deliberately added to magnify the
       // data-corruption problem and make it easy to see.
       try {
-        Thread.sleep(1);
+        Thread.sleep(100);
       } catch (InterruptedException ex) {
       }
 
