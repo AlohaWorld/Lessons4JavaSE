@@ -21,43 +21,71 @@ import javafx.util.Duration;
 public class ClockWithAudio1 extends Application {
   // 先查看硬盘上的音频文件及目录
   // Create audio clips for hour and minute
-
+  private AudioClip[] hourAudio = new AudioClip[12];
+  private AudioClip[] minAudio  = new AudioClip[60];
   
   // Create audio clips for pronouncing am and pm
-
+  private AudioClip amAudio;
+  private AudioClip pmAudio;
   
   // Setup the "audio" directory, which use File class
   // Then build the path
-
+  File directory = new File("audio");
+  String path;
+  
   
   /** Called by start(), Initialize the audio system */
   private void initAudio() {
-  
     //Build the path to audio files, then print it
-
+    try {
+      path = directory.toURI().toURL().toString();
+    } catch (MalformedURLException e) {
+      e.printStackTrace();
+    }
+    System.out.println(path);
       
     // Setup AudioClip for am/pm
-
+    amAudio = new AudioClip(path+"am.wav");
+    pmAudio = new AudioClip(path+"pm.wav");
+        
 
     // Create audio clips for pronouncing hours
-
+    for(int i = 0; i < hourAudio.length; i++) {
+      hourAudio[i] = new AudioClip(path + "hour" + i + ".wav");
+    }
 
     // Create audio clips for pronouncing minutes
-
+    for (int i = 0; i < minAudio.length; i++) {
+      minAudio[i] = new AudioClip(path + "minute" + i + ".wav");
+    }    
   }
   
   /**
    * Tell the time with given hour and minute
+   * @throws InterruptedException 
    */
   private void announceTime(int hour, int minute) {
     //Announce hour, 12-hour format
-
-    
+    hourAudio[hour].play();
+    try {
+      Thread.sleep(1500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
 
     //Announce minute
-
+    minAudio[minute].play();
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     
     //Announce am/pm according to the hour
+    if(hour >= 12)
+      pmAudio.play();
+    else
+      amAudio.play();
     
   }
   
@@ -87,6 +115,9 @@ public class ClockWithAudio1 extends Application {
       clock.setCurrentTime(); // Set a new clock time
       
       // 每分钟/20秒钟播报一次时间
+      if(clock.getSecond() % 10 == 0) {
+        new AudioThread(clock.getHour(),clock.getMinute()).start();
+      }
 
     };
     
@@ -112,6 +143,20 @@ public class ClockWithAudio1 extends Application {
     primaryStage.show(); // Display the stage
   }
 
+  /** A new Thread class to announce time
+   * 
+   */
+  class AudioThread extends Thread {
+    private int hour, minute;
+    public AudioThread(int hour, int minute) {
+      this.hour   = hour;
+      this.minute = minute;
+    }
+    @Override
+    public void run() {
+      announceTime(hour, minute);
+    }
+  }
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

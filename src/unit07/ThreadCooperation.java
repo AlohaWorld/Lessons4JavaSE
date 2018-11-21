@@ -45,11 +45,20 @@ public class ThreadCooperation {
 			return balance;
 		}
 
-		public synchronized void deposit(int amount) {
+		public synchronized void deposit1(int amount) {
 			balance += amount;
 			System.out.println("Deposit " + amount + "\t\t\t\t\t"
 					+ getBalance());
 			notifyAll();
+		}
+		
+		public void deposit(int amount) {
+		  synchronized(this) {
+	          this.balance += amount;
+	            System.out.println("Deposit " + amount + "\t\t\t\t\t"
+	                    + getBalance());
+	            notifyAll();
+		  }
 		}
 
 		public synchronized void withdraw(int amount) {

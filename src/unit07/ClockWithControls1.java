@@ -1,6 +1,5 @@
 package unit07;
 
-import ClockPane;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.animation.KeyFrame;
@@ -19,15 +18,21 @@ public class ClockWithControls1 extends Application {
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     // Create two buttons to start/stop the clock
-
+    Button btnPause = new Button("Pause");
+    Button btnContinue = new Button("Continue");
 
     // Create a hbox to hold the buttons with center alignment
-
+    HBox lpane = new HBox(30);
+    lpane.getChildren().addAll(btnPause, btnContinue);
+    lpane.setAlignment(Pos.CENTER);
+    
     // Create a clock
     ClockPane clock = new ClockPane();
     
     // Create a panel to hold the clock pane and control buttons
-
+    BorderPane pane = new BorderPane();
+    pane.setCenter(clock);
+    pane.setBottom(lpane);
     
     // Create a handler for animation
     EventHandler<ActionEvent> eventHandler = e -> {
@@ -42,10 +47,15 @@ public class ClockWithControls1 extends Application {
     
 
     // Set Action Handler for Buttons
-
+    btnPause.setOnAction(e -> {
+      animation.stop();
+    });
+    btnContinue.setOnAction(e -> {
+      animation.play();
+    });
     
     // Create a scene and place it in the stage
-    Scene scene = new Scene(clock, 250, 250);
+    Scene scene = new Scene(pane, 250, 250);
     primaryStage.setTitle("ClockAnimation"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
