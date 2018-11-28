@@ -1,4 +1,4 @@
-package unit09;
+package unit09.demo0;
 
 public interface TicTacToeConstants {
   public static int PLAYER1 = 1; // Indicate player 1

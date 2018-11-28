@@ -1,4 +1,4 @@
-package unit09.demo;
+package unit09.demo2;
 
 public class DGChatServer {
 

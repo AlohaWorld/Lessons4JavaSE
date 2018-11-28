@@ -48,7 +48,7 @@ public class Demo07P31 {
     private int balance = 0;
 
     // get a static Lock object. Attention: not using new
-    Lock lock = java.util.concurrent.locks.ReentrantLock();
+    Lock lock = new ReentrantLock();
     
     // Create a Condition object with lock.newXXX
     Condition cond = lock.newCondition();
