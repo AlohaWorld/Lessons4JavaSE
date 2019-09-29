@@ -15,7 +15,7 @@ public class NodeStyleRotateDemo extends Application {
     btOK.setStyle("-fx-border-color: blue;");
     pane.getChildren().add(btOK);    
     
-    pane.setRotate(45);
+    pane.setRotate(90);
     pane.setStyle(
       "-fx-border-color: red; -fx-background-color: lightgray;");
     

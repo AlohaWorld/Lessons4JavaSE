@@ -31,8 +31,9 @@ public class SimpleJdbc {
 //        + " = 'Smith'");
 //        ("select * from Student where lastName "
 //            + " = 'Smith'");
-        ("select * from Course");
+        ("select * from Course where name = 'Adam'");
 
+    //statement.execute
     // Iterate through the result and print the student names
     while (resultSet.next())
       System.out.println(resultSet.getString(1) + "\t" +

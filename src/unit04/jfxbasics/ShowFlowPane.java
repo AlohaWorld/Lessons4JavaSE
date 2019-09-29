@@ -13,7 +13,7 @@ public class ShowFlowPane extends Application {
   public void start(Stage primaryStage) {
     // Create a pane and set its properties
     FlowPane pane = new FlowPane();
-    pane.setPadding(new Insets(11, 12, 13, 14));
+    pane.setPadding(new Insets(11, 120, 13, 14));
     pane.setHgap(5);
     pane.setVgap(5);
 

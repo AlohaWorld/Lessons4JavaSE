@@ -24,7 +24,7 @@ public class HandleEvent extends Application {
     CancelHandlerClass handler2 = new CancelHandlerClass();
     //btCancel.setOnAction(handler2);
     btCancel.setOnAction(
-        (ActionEvent e) -> {System.out.println("Ok pressed");}
+        (ActionEvent e) -> {System.out.println("Cancel pressed");}
         );
     pane.getChildren().addAll(btOK, btCancel);
     
