@@ -13,13 +13,15 @@ public class MyMain {
 
 }
 
+
 class Judge implements Runnable {
   // c1和c2线程对应Client类；
   // c1和c2线程由j线程创建，所以创建代码要放到Judge类中
-  //     Judge类必须能访问Client类
+  // Judge类必须能访问Client类
   Client c1 = new Client();
   Client c2 = new Client();
   MyChar myChar = new MyChar();
+
   @Override
   public void run() {
     Thread t1 = new Thread(c1);
@@ -35,19 +37,21 @@ class Judge implements Runnable {
     }
     System.out.print(c1.getC());
 
-    
+
   }
 
-  class Client implements Runnable{
+  class Client implements Runnable {
     private char c;
+
     public char getC() {
       return c;
     }
+
     public void run() {
       Random random = new Random();
-      int offset  = random.nextInt(25);
+      int offset = random.nextInt(25);
       c = (char) ('a' + offset);
-      
+
     }
   }
 }
@@ -56,16 +60,20 @@ class Judge implements Runnable {
 
 class MyChar {
   private char x, y;
+
   public MyChar() {
-    
+
   }
+
   public int randomSleep() {
-    
+
   }
+
   public char generateChar() {
     x = 'z';
     return x;
   }
+
   public char getX() {
     return x;
   }

@@ -5,8 +5,7 @@ public class CircleWithPrivateDataFields {
   private double radius = 1;
 
   /** Construct a circle with radius 1 */
-  public CircleWithPrivateDataFields() {
-  }
+  public CircleWithPrivateDataFields() {}
 
   /** Construct a circle with a specified radius */
   public CircleWithPrivateDataFields(double radius) {

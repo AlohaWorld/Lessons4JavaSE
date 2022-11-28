@@ -5,16 +5,16 @@ package unit09.complete;
  * 
  * 使用WebView编写一个建议浏览器
  * 
-  +--------------------------------------------+
-  |          +------------------------------+  |
-  |  Address | http://www.bupt.edu.cn       |  |
-  |          +------------------------------+  |
-  | +---------------------------------------+  |
-  | |                                       |  |
-  | |            WebView                    |  |
-  | |                                       |  |
-  | +---------------------------------------+  |
-  +--------------------------------------------+
+ * +--------------------------------------------+
+ * | +------------------------------+ |
+ * | Address | http://www.bupt.edu.cn | |
+ * | +------------------------------+ |
+ * | +---------------------------------------+ |
+ * | | | |
+ * | | WebView | |
+ * | | | |
+ * | +---------------------------------------+ |
+ * +--------------------------------------------+
  */
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -42,35 +42,36 @@ public class Demo09P61 extends Application {
     hbox.getChildren().addAll(lb, tb);
     pane.setTop(hbox);
     pane.setCenter(wv);
-    
+
     // TextBox: setOnAction (EventHandler<ActionEvent> e)
     tb.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent e) {
-        
+
         URL url = null;
         try {
           url = new URL(tb.getText());
         } catch (MalformedURLException e1) {
           System.err.println("Wrong url: " + tb.getText());
         }
-        
+
         try {
           wv.getEngine().load(url.toURI().toString());
         } catch (URISyntaxException e1) {
           e1.printStackTrace();
         }
-        
+
       }
     });
-    
+
     // new Scene; Stage: setScene, setTitle, show;
     var scene = new Scene(pane, 800, 500);
     primaryStage.setScene(scene);
     primaryStage.setTitle("Web browser");
     primaryStage.show();
   }
-  public static void main(String[] args) {    
+
+  public static void main(String[] args) {
     Application.launch(args);
   }
 

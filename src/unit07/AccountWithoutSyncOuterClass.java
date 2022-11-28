@@ -24,12 +24,15 @@ public class AccountWithoutSyncOuterClass {
   }
 }
 
+
 // A thread for adding a penny to the account
 class AddAPennyThread implements Runnable {
   private Account account;
+
   AddAPennyThread(Account account) {
     this.account = account;
   }
+
   public void run() {
     account.deposit(1);
   }

@@ -11,22 +11,21 @@ import javafx.stage.Stage;
 
 public class FontDemo extends Application {
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {    
-    // Create a pane to hold the circle 
+  public void start(Stage primaryStage) {
+    // Create a pane to hold the circle
     Pane pane = new StackPane();
-    
+
     // Create a circle and set its properties
     Circle circle = new Circle();
     circle.setRadius(50);
-    circle.setStroke(Color.BLACK); 
-    //circle.setFill(new Color(0.1, 0.1, 0.1, 0.1)); //R,G,B,Opacity
+    circle.setStroke(Color.BLACK);
+    // circle.setFill(new Color(0.1, 0.1, 0.1, 0.1)); //R,G,B,Opacity
     circle.setFill(Color.color(0.5, 1, 1, 0.9));
-    //circle.setFill(Color.rgb(0, 0, 255, 0.5));
+    // circle.setFill(Color.rgb(0, 0, 255, 0.5));
     pane.getChildren().add(circle); // Add circle to the pane
     // Create a label and set its properties
     Label label = new Label("JavaFX");
-    label.setFont(Font.font("Times New Roman", 
-      FontWeight.BOLD, FontPosture.ITALIC, 20));
+    label.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.ITALIC, 20));
     pane.getChildren().add(label);
 
     // Create a scene and place it in the stage
@@ -35,7 +34,7 @@ public class FontDemo extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

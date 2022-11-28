@@ -6,7 +6,7 @@ public class TestThread {
   static PrintChar printA = new PrintChar('a', 100);
   static PrintChar printB = new PrintChar('b', 100);
   static PrintNum print100 = new PrintNum(100);
-  
+
   public static void main(String[] args) {
     // Start threads
     print100.start();

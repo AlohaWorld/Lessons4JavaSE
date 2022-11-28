@@ -19,33 +19,33 @@ public class Demo09P4S {
   public static void main(String[] args) {
     // Create thread pool with ExecutorService and Executors
     ExecutorService executor = Executors.newCachedThreadPool();
-      // Create a server socket, using try-with-resource
+    // Create a server socket, using try-with-resource
     try (ServerSocket serverSocket = new ServerSocket(8000)) {
       System.out.println("Server started at port 8000");
-      
-      while(true) {
+
+      while (true) {
         // Listen for a connection request
         Socket socket = serverSocket.accept();
-        
+
         // Create a thread with executor
         executor.execute(new Demo09P4S.ServerThread(socket));
       }
-    }
-    catch(IOException ex) {
+    } catch (IOException ex) {
       ex.printStackTrace();
     } finally {
       System.out.println("Server socket closed");
     }
-    
+
     executor.shutdown();
     System.out.println("Server terminated");
   } // end main
-  
+
   // Create a ServerThread (of Runnable)
   static class ServerThread implements Runnable {
-    
+
     // 保留socket存根，便于在run函数中使用
     private Socket socket = null;
+
     // 构造函数
     public ServerThread(Socket socket) {
       this.socket = socket;
@@ -57,16 +57,16 @@ public class Demo09P4S {
         // Create data input and output streams
         var in = new DataInputStream(socket.getInputStream());
         var out = new DataOutputStream(socket.getOutputStream());
-        
+
         double radius;
         // Receive radius from the client
-        while ( (radius = in.readDouble()) > 0 ) {
+        while ((radius = in.readDouble()) > 0) {
           // Compute area
           double area = radius * radius * Math.PI;
-  
+
           // Send area back to the client
           out.writeDouble(area);
-          
+
           System.out.println("Thread " + this.hashCode() + "\tRadius from client: " + radius);
           System.out.println("Thread " + this.hashCode() + "\tArea is: " + area);
         } // end while

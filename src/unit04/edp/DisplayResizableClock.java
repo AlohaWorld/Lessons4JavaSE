@@ -10,11 +10,10 @@ import javafx.scene.layout.BorderPane;
 
 public class DisplayResizableClock extends Application {
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {       
+  public void start(Stage primaryStage) {
     // Create a clock and a label
     ClockPane clock = new ClockPane();
-    String timeString = clock.getHour() + ":" + clock.getMinute() 
-      + ":" + clock.getSecond();
+    String timeString = clock.getHour() + ":" + clock.getMinute() + ":" + clock.getSecond();
     Label lblCurrentTime = new Label(timeString);
 
     // Place clock and label in border pane
@@ -22,22 +21,18 @@ public class DisplayResizableClock extends Application {
     pane.setCenter(clock);
     pane.setBottom(lblCurrentTime);
     BorderPane.setAlignment(lblCurrentTime, Pos.TOP_CENTER);
-    
+
     // Create a scene and place the pane in the stage
     Scene scene = new Scene(pane, 250, 250);
     primaryStage.setTitle("DisplayClock"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
-    
-    pane.widthProperty().addListener(ov ->
-      clock.setWidth(pane.getWidth())
-    );
-    
-    pane.heightProperty().addListener(ov ->
-      clock.setHeight(pane.getHeight())
-    );
+
+    pane.widthProperty().addListener(ov -> clock.setWidth(pane.getWidth()));
+
+    pane.heightProperty().addListener(ov -> clock.setHeight(pane.getHeight()));
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

@@ -3,56 +3,54 @@ package unit06;
 import java.io.*;
 
 public class Copy {
-	/**
-	 * Main method
-	 * 
-	 * @param args
-	 *            [0] for sourcefile
-	 * @param args
-	 *            [1] for target file
-	 */
-	public static void main(String[] args) throws IOException {
-		// Check command-line parameter usage
-		if (args.length != 2) {
-			System.out.println("Usage: java CopyFile sourceFile targetfile");
-			System.exit(0);
-		}
+  /**
+   * Main method
+   * 
+   * @param args
+   *            [0] for sourcefile
+   * @param args
+   *            [1] for target file
+   */
+  public static void main(String[] args) throws IOException {
+    // Check command-line parameter usage
+    if (args.length != 2) {
+      System.out.println("Usage: java CopyFile sourceFile targetfile");
+      System.exit(0);
+    }
 
-		// Check if source file exists
-		File sourceFile = new File(args[0]);
-		if (!sourceFile.exists()) {
-			System.out.println("Source file " + args[0] + " not exist");
-			System.exit(0);
-		}
+    // Check if source file exists
+    File sourceFile = new File(args[0]);
+    if (!sourceFile.exists()) {
+      System.out.println("Source file " + args[0] + " not exist");
+      System.exit(0);
+    }
 
-		// Check if target file exists
-		File targetFile = new File(args[1]);
-		if (targetFile.exists()) {
-			System.out.println("Target file " + args[1] + " already exists");
-			System.exit(0);
-		}
+    // Check if target file exists
+    File targetFile = new File(args[1]);
+    if (targetFile.exists()) {
+      System.out.println("Target file " + args[1] + " already exists");
+      System.exit(0);
+    }
 
-		// Create an input file stream, then wrapped in a buffered input stream
-		BufferedInputStream input = new BufferedInputStream(
-				new FileInputStream(sourceFile));
+    // Create an input file stream, then wrapped in a buffered input stream
+    BufferedInputStream input = new BufferedInputStream(new FileInputStream(sourceFile));
 
-		// Create an output stream
-		BufferedOutputStream output = new BufferedOutputStream(
-				new FileOutputStream(targetFile));
+    // Create an output stream
+    BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(targetFile));
 
-		// Display the file size
-		System.out.println("The file " + args[0] + " has " + input.available()
-				+ " bytes");
+    // Display the file size
+    System.out.println("The file " + args[0] + " has " + input.available() + " bytes");
 
-		// Continuously read a byte from input and write it to output
-		int r;
-		while ((r = input.read()) != -1) //Think: why use -1 as an indicator? why not 1? 
-			output.write((byte) r);
+    // Continuously read a byte from input and write it to output
+    int r;
+    while ((r = input.read()) != -1) // Think: why use -1 as an indicator? why
+                                     // not 1?
+      output.write((byte) r);
 
-		// Close streams
-		input.close();
-		output.close();
+    // Close streams
+    input.close();
+    output.close();
 
-		System.out.println("Copy done!");
-	}
+    System.out.println("Copy done!");
+  }
 }

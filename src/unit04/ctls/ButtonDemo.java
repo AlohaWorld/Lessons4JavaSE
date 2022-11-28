@@ -13,30 +13,28 @@ import javafx.scene.text.Text;
 
 public class ButtonDemo extends Application {
   protected Text text = new Text(50, 50, "JavaFX Programming");
-  
+
   protected BorderPane getPane() {
     HBox paneForButtons = new HBox(20);
-    Button btLeft = new Button("Left", 
-      new ImageView("file:image/left.gif"));
-    Button btRight = new Button("Right", 
-      new ImageView("file:image/right.gif"));   
+    Button btLeft = new Button("Left", new ImageView("file:image/left.gif"));
+    Button btRight = new Button("Right", new ImageView("file:image/right.gif"));
     paneForButtons.getChildren().addAll(btLeft, btRight);
     paneForButtons.setAlignment(Pos.CENTER);
     paneForButtons.setStyle("-fx-border-color: blue");
 
     BorderPane pane = new BorderPane();
     pane.setBottom(paneForButtons);
-    
+
     Pane paneForText = new Pane();
     paneForText.getChildren().add(text);
     pane.setCenter(paneForText);
-    
+
     btLeft.setOnAction(e -> text.setX(text.getX() - 10));
     btRight.setOnAction(e -> text.setX(text.getX() + 10));
-    
+
     return pane;
   }
-  
+
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     // Create a scene and place it in the stage

@@ -13,18 +13,17 @@ public class NodeStyleRotateDemo extends Application {
     StackPane pane = new StackPane();
     Button btOK = new Button("OK");
     btOK.setStyle("-fx-border-color: blue;");
-    pane.getChildren().add(btOK);    
-    
+    pane.getChildren().add(btOK);
+
     pane.setRotate(90);
-    pane.setStyle(
-      "-fx-border-color: red; -fx-background-color: lightgray;");
-    
+    pane.setStyle("-fx-border-color: red; -fx-background-color: lightgray;");
+
     Scene scene = new Scene(pane, 200, 250);
     primaryStage.setTitle("NodeStyleRotateDemo"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

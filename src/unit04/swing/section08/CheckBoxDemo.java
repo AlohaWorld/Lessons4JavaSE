@@ -36,7 +36,7 @@ public class CheckBoxDemo extends ButtonDemo {
     // Register listeners with the check boxes
     jchkCentered.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-         messagePanel.setCentered(jchkCentered.isSelected());
+        messagePanel.setCentered(jchkCentered.isSelected());
       }
     });
     jchkBold.addActionListener(new ActionListener() {
@@ -59,7 +59,6 @@ public class CheckBoxDemo extends ButtonDemo {
 
     // Set font for the message
     Font font = messagePanel.getFont();
-    messagePanel.setFont(
-      new Font(font.getName(), fontStyle, font.getSize()));
+    messagePanel.setFont(new Font(font.getName(), fontStyle, font.getSize()));
   }
 }

@@ -11,8 +11,7 @@ public class SliderDemo extends JFrame {
   private JSlider jsldVert = new JSlider(JSlider.VERTICAL);
 
   // Create a MessagePanel
-  private MessagePanel messagePanel =
-    new MessagePanel("Welcome to Java");
+  private MessagePanel messagePanel = new MessagePanel("Welcome to Java");
 
   public static void main(String[] args) {
     SliderDemo frame = new SliderDemo();
@@ -52,9 +51,8 @@ public class SliderDemo extends JFrame {
         // precision, use double
         double value = jsldHort.getValue();
         double maximumValue = jsldHort.getMaximum();
-        double newX = (value * messagePanel.getWidth() / 
-          maximumValue);
-        messagePanel.setXCoordinate((int)newX);
+        double newX = (value * messagePanel.getWidth() / maximumValue);
+        messagePanel.setXCoordinate((int) newX);
       }
     });
     jsldVert.addChangeListener(new ChangeListener() {
@@ -64,8 +62,7 @@ public class SliderDemo extends JFrame {
         // precision, use double
         double value = jsldVert.getValue();
         double maximumValue = jsldVert.getMaximum();
-        double newY = (value * messagePanel.getHeight() / 
-          maximumValue);
+        double newY = (value * messagePanel.getHeight() / maximumValue);
         messagePanel.setYCoordinate((int) newY);
       }
     });

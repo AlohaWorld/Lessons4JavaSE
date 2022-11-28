@@ -6,11 +6,11 @@ public class Circle extends Shape {
   public Circle() {
     this.radius = 1.0;
   }
-  
+
   public Circle(double newRadius) {
     this.radius = newRadius;
   }
-  
+
   public String toString() {
     return "Circle";
   }

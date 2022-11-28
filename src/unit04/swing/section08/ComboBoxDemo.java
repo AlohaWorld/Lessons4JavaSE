@@ -6,22 +6,15 @@ import javax.swing.*;
 
 public class ComboBoxDemo extends JFrame {
   // Declare an array of Strings for flag titles
-  private String[] flagTitles = {"Canada", "China", "Denmark",
-    "France", "Germany", "India", "Norway", "United Kingdom",
-    "United States of America"};
+  private String[] flagTitles = {"Canada", "China", "Denmark", "France", "Germany", "India",
+      "Norway", "United Kingdom", "United States of America"};
 
   // Declare an ImageIcon array for the national flags of 9 countries
-  private ImageIcon[] flagImage = {
-    new ImageIcon("image/ca.gif"),
-    new ImageIcon("image/china.gif"),
-    new ImageIcon("image/denmark.gif"),
-    new ImageIcon("image/fr.gif"),
-    new ImageIcon("image/germany.gif"),
-    new ImageIcon("image/india.gif"),
-    new ImageIcon("image/norway.gif"),
-    new ImageIcon("image/uk.gif"),
-    new ImageIcon("image/us.gif")
-  };
+  private ImageIcon[] flagImage = {new ImageIcon("image/ca.gif"), new ImageIcon("image/china.gif"),
+      new ImageIcon("image/denmark.gif"), new ImageIcon("image/fr.gif"),
+      new ImageIcon("image/germany.gif"), new ImageIcon("image/india.gif"),
+      new ImageIcon("image/norway.gif"), new ImageIcon("image/uk.gif"),
+      new ImageIcon("image/us.gif")};
 
   // Declare an array of strings for flag descriptions
   private String[] flagDescription = new String[9];
@@ -43,15 +36,15 @@ public class ComboBoxDemo extends JFrame {
 
   public ComboBoxDemo() {
     // Set text description
-    flagDescription[0] = "The Maple Leaf flag \n\n" +
-      "The Canadian National Flag was adopted by the Canadian " +
-      "Parliament on October 22, 1964 and was proclaimed into law " +
-      "by Her Majesty Queen Elizabeth II (the Queen of Canada) on " +
-      "February 15, 1965. The Canadian Flag (colloquially known " +
-      "as The Maple Leaf Flag) is a red flag of the proportions " +
-      "two by length and one by width, containing in its center a " +
-      "white square, with a single red stylized eleven-point " +
-      "mapleleaf centered in the white square.";
+    flagDescription[0] =
+        "The Maple Leaf flag \n\n" + "The Canadian National Flag was adopted by the Canadian "
+            + "Parliament on October 22, 1964 and was proclaimed into law "
+            + "by Her Majesty Queen Elizabeth II (the Queen of Canada) on "
+            + "February 15, 1965. The Canadian Flag (colloquially known "
+            + "as The Maple Leaf Flag) is a red flag of the proportions "
+            + "two by length and one by width, containing in its center a "
+            + "white square, with a single red stylized eleven-point "
+            + "mapleleaf centered in the white square.";
     flagDescription[1] = "Description for China ... ";
     flagDescription[2] = "Description for Denmark ... ";
     flagDescription[3] = "Description for France ... ";

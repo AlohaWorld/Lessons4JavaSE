@@ -16,7 +16,7 @@ public class ClockWithAudio extends JFrame implements ActionListener {
   // Create audio clips for pronouncing am and pm
   protected File directory = new File("audio");
   protected String path;
-  
+
   protected AudioClip amAudio;
   protected AudioClip pmAudio;
 
@@ -34,7 +34,7 @@ public class ClockWithAudio extends JFrame implements ActionListener {
     try {
       path = directory.toURI().toURL().toString();
       System.out.println(path);
-      
+
       amAudio = new AudioClip(path + "am.wav");
       pmAudio = new AudioClip(path + "pm.wav");
     } catch (MalformedURLException e) {
@@ -83,15 +83,15 @@ public class ClockWithAudio extends JFrame implements ActionListener {
     else
       pmAudio.play();
   }
-  
+
   public ClockWithAudio() throws MalformedURLException {
     // Add clock and time label to the content pane
-    add(clock, BorderLayout.CENTER);    
+    add(clock, BorderLayout.CENTER);
     add(jlblDigitTime, BorderLayout.SOUTH);
 
     // Load audio clips
     initAudio();
-    
+
     // Start the timer
     timer.start();
   }

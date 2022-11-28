@@ -23,27 +23,26 @@ public class ControlCircleWithMouseAndKey extends Application {
     Button btShrink = new Button("Shrink");
     hBox.getChildren().add(btEnlarge);
     hBox.getChildren().add(btShrink);
-    
+
     // Create and register the handler
     btEnlarge.setOnAction(e -> circlePane.enlarge());
     btShrink.setOnAction(e -> circlePane.shrink());
-    
+
     BorderPane borderPane = new BorderPane();
     borderPane.setCenter(circlePane);
     borderPane.setBottom(hBox);
     BorderPane.setAlignment(hBox, Pos.CENTER);
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(borderPane, 200, 150);
     primaryStage.setTitle("ControlCircle"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
-    
+
     circlePane.setOnMouseClicked(e -> {
       if (e.getButton() == MouseButton.PRIMARY) {
         circlePane.enlarge();
-      }
-      else if (e.getButton() == MouseButton.SECONDARY) {
+      } else if (e.getButton() == MouseButton.SECONDARY) {
         circlePane.shrink();
       }
       circlePane.requestFocus();
@@ -52,14 +51,13 @@ public class ControlCircleWithMouseAndKey extends Application {
     scene.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.UP) {
         circlePane.enlarge();
-      }
-      else if (e.getCode() == KeyCode.DOWN) {
+      } else if (e.getCode() == KeyCode.DOWN) {
         circlePane.shrink();
       }
     });
     circlePane.requestFocus();
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

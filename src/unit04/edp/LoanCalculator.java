@@ -18,7 +18,7 @@ public class LoanCalculator extends Application {
   private TextField tfMonthlyPayment = new TextField();
   private TextField tfTotalPayment = new TextField();
   private Button btCalculate = new Button("Calculate");
-  
+
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     // Create UI
@@ -57,25 +57,21 @@ public class LoanCalculator extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   private void calculateLoanPayment() {
     // Get values from text fields
-    double interest =
-      Double.parseDouble(tfAnnualInterestRate.getText());
+    double interest = Double.parseDouble(tfAnnualInterestRate.getText());
     int year = Integer.parseInt(tfNumberOfYears.getText());
-    double loanAmount =
-      Double.parseDouble(tfLoanAmount.getText());
+    double loanAmount = Double.parseDouble(tfLoanAmount.getText());
 
     // Create a loan object. Loan defined in Listing 10.2
     Loan loan = new Loan(interest, year, loanAmount);
 
     // Display monthly payment and total payment
-    tfMonthlyPayment.setText(String.format("$%.2f",
-      loan.getMonthlyPayment()));
-    tfTotalPayment.setText(String.format("$%.2f",
-      loan.getTotalPayment()));
+    tfMonthlyPayment.setText(String.format("$%.2f", loan.getMonthlyPayment()));
+    tfTotalPayment.setText(String.format("$%.2f", loan.getTotalPayment()));
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

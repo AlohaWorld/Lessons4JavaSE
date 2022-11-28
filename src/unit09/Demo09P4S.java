@@ -24,9 +24,9 @@ public class Demo09P4S {
       while (true) {
         // Listen for a connection request
         Socket socket = ss.accept();
-        System.out.println("Thread for " + socket.getInetAddress().getHostName()
-            + " port " + socket.getPort());
-        // Create a thread with executor
+        System.out.println(
+            "Thread for " + socket.getInetAddress().getHostName() + " port " + socket.getPort());
+        // Create a thread with executor.execute
         executor.execute(new ServerThread(socket));
       }
     } catch (IOException ex) {
@@ -37,10 +37,10 @@ public class Demo09P4S {
   // Create a ServerThread (of Runnable)
   static class ServerThread implements Runnable {
     // socket 成员
-    private Socket socket;
+    Socket socket = null;
 
-    // ctor
-    public ServerThread(Socket socket) {
+    // ctor，初始化socket
+    ServerThread(Socket socket) {
       this.socket = socket;
     }
 
@@ -56,8 +56,7 @@ public class Demo09P4S {
           // Receive radius from the client
           double r = in.readDouble();
           if (r < 0.0) {
-            System.out.println("Read a negtive radius: "
-                + r);
+            System.out.println("Read a negtive radius: " + r);
             System.out.println("Quit thread");
             break;
           }

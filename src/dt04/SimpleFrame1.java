@@ -8,13 +8,11 @@ import javax.swing.JPanel;
 // 创建一个窗口，在窗口中显示“Hello, World!”
 /* Method 1, Steps:
  * 1. Create a frame
- * 2. Call showMessageDialog()
- */
+ * 2. Call showMessageDialog() */
 /* Method 2, Steps:
  * 1. Create a frame
  * 2. Create a JLabel in the frame
- * 3. Set the text of JLabel object to "Hello, World!"
- */
+ * 3. Set the text of JLabel object to "Hello, World!" */
 
 public class SimpleFrame1 {
   public static void main(String[] args) {
@@ -23,7 +21,7 @@ public class SimpleFrame1 {
         "Hello, World!",
         "Simple Frame Example 1",    
         JOptionPane.INFORMATION_MESSAGE );
-
+    
     */
     // Method 2
     JFrame frame = new JFrame("Simeple Frame Example 1");
@@ -34,6 +32,6 @@ public class SimpleFrame1 {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLocationRelativeTo(null);
 
-}
+  }
 
 }

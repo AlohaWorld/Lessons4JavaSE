@@ -9,7 +9,7 @@ public class Demo09P7S {
     // The byte array for sending and receiving datagram packets
     byte[] buf = new byte[256];
     // Create a server socket with DatagramSocket(port)
-    try(DatagramSocket socket = new DatagramSocket(8000)) {
+    try (DatagramSocket socket = new DatagramSocket(8000)) {
 
       System.out.println("Server started at " + new Date() + '\n');
 
@@ -34,7 +34,8 @@ public class Demo09P7S {
         double area = radius * radius * Math.PI;
         System.out.println("Area is " + area + '\n');
 
-        // Send area to the client in a packet, with DatagramPacket.setAddress/setPort/setData/send
+        // Send area to the client in a packet, with
+        // DatagramPacket.setAddress/setPort/setData/send
         sendPacket.setAddress(receivePacket.getAddress());
         sendPacket.setPort(receivePacket.getPort());
         sendPacket.setData(Double.valueOf(area).toString().getBytes());

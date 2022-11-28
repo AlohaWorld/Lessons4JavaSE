@@ -23,9 +23,9 @@ class PrintChar {
           // TODO Auto-generated catch block
           e.printStackTrace();
         }
-        
+
         try {
-          if(System.in.available()>0) {
+          if (System.in.available() > 0) {
             System.exit(0);
           }
         } catch (IOException e) {

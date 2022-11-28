@@ -10,14 +10,14 @@ import javafx.scene.shape.Polygon;
 
 public class ShowPolygon extends Application {
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {   
+  public void start(Stage primaryStage) {
     // Create a scene and place it in the stage
     Scene scene = new Scene(new MyPolygon(), 400, 400);
     primaryStage.setTitle("ShowPolygon"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.
@@ -27,6 +27,7 @@ public class ShowPolygon extends Application {
   }
 }
 
+
 class MyPolygon extends Pane {
   private void paint() {
     // Create a polygon and place polygon to pane
@@ -34,26 +35,26 @@ class MyPolygon extends Pane {
     polygon.setFill(Color.WHITE);
     polygon.setStroke(Color.BLACK);
     ObservableList<Double> list = polygon.getPoints();
-    
+
     double centerX = getWidth() / 2, centerY = getHeight() / 2;
     double radius = Math.min(getWidth(), getHeight()) * 0.4;
 
     // Add points to the polygon list
     for (int i = 0; i < 6; i++) {
-      list.add(centerX + radius * Math.cos(2 * i * Math.PI / 6)); 
+      list.add(centerX + radius * Math.cos(2 * i * Math.PI / 6));
       list.add(centerY - radius * Math.sin(2 * i * Math.PI / 6));
-    }     
-    
+    }
+
     getChildren().clear();
-    getChildren().add(polygon); 
+    getChildren().add(polygon);
   }
-  
+
   @Override
   public void setWidth(double width) {
     super.setWidth(width);
     paint();
   }
-  
+
   @Override
   public void setHeight(double height) {
     super.setHeight(height);

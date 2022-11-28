@@ -23,8 +23,7 @@ public class MessagePanel extends JPanel {
   private int interval = 10;
 
   /** Construct with default properties */
-  public MessagePanel() {
-  }
+  public MessagePanel() {}
 
   /** Construct a message panel with a specified message */
   public MessagePanel(String message) {

@@ -1,5 +1,5 @@
 /**
- * @(#)HelloJFXApp.java    1.0.0 09/05/2018
+ * @(#)HelloJFXApp.java 1.0.0 09/05/2018
  * @author cuiyidong
  * @version 1.0
  */
@@ -43,15 +43,15 @@ public class HelloJFXApp extends Application {
     // 设置舞台的标题(setTitle)
     primaryStage.setTitle("Hello, JavaFX!");
     // 将场景放到舞台上(setScene)
-    primaryStage.setScene(scene); 
+    primaryStage.setScene(scene);
     // 显示舞台(show)
     primaryStage.show();
   }
-  
-/*
+
+  /*
   public static void main(String[] args) { 
     launch(args);
   }
-*/
+  */
 }
 

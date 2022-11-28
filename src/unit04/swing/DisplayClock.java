@@ -9,14 +9,14 @@ public class DisplayClock extends JFrame {
     StillClock clock = new StillClock();
 
     // Display hour, minute, and seconds in the message panel
-    MessagePanel messagePanel = new MessagePanel(clock.getHour() +
-      ":" + clock.getMinute() + ":" + clock.getSecond());
+    MessagePanel messagePanel =
+        new MessagePanel(clock.getHour() + ":" + clock.getMinute() + ":" + clock.getSecond());
     messagePanel.setCentered(true);
     messagePanel.setForeground(Color.blue);
     messagePanel.setFont(new Font("Courie", Font.BOLD, 16));
 
     // Add the clock and message panel to the frame
-    // The default content pane will have a BorderLayout manager set on it. 
+    // The default content pane will have a BorderLayout manager set on it.
     // https://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/JFrame.html
     add(clock);
     add(messagePanel, BorderLayout.SOUTH);

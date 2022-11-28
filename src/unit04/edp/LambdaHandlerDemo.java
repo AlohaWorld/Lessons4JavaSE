@@ -20,7 +20,7 @@ public class LambdaHandlerDemo extends Application {
     Button btSave = new Button("Save");
     Button btPrint = new Button("Print");
     hBox.getChildren().addAll(btNew, btOpen, btSave, btPrint);
-  
+
     // Create and register the handler
     btNew.setOnAction((ActionEvent e) -> {
       System.out.println("Process New");
@@ -29,11 +29,11 @@ public class LambdaHandlerDemo extends Application {
     btOpen.setOnAction((e) -> {
       System.out.println("Process Open");
     });
-    
+
     btSave.setOnAction(e -> {
       System.out.println("Process Save");
     });
-    
+
     btPrint.setOnAction(e -> System.out.println("Process Print"));
 
     // Create a scene and place it in the stage
@@ -42,7 +42,7 @@ public class LambdaHandlerDemo extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

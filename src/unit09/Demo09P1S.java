@@ -1,44 +1,75 @@
 package unit09;
 
-/**
- * 现场编程
- * 
- * 这是服务器程序，接收客户端发来的半径，返回圆面积，随后退出
- */
-
-import java.io.*;
-import java.net.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Demo09P1S {
+  final static int port = 10080;
 
   public static void main(String[] args) {
-    try { // 此处可以改为 try-with-resource 形式，避免使用finally语句关闭资源
-      // 创建一个ServerSocket对象，指定监听端口，与客户端程序保持一致
-      var server = new ServerSocket(8000);
-      System.out.println("Listening on port 8000");
-      // 监听并等待接受连接：accept
-      var socket = server.accept();
-      System.out.println("Client connected");
 
-      // 创建 Data Input/Output 流
-      var in = new DataInputStream(socket.getInputStream());
-      DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+    // 创建一个 server socket，使用 try-with-resource
+    // 在控制台上提示服务器启动并监听的端口号
+    Socket socket = null;
+    try (ServerSocket serverSocket = new ServerSocket(port);) {
+      System.out.println("Server listening on port " + port);
+      int i = 0;
+      while (i++ < 100) {
+        // 监听并等待接受连接：使用ServerSocket对象的accept()
+        socket = serverSocket.accept();
 
-      // 从客户端接收圆的半径（通过DataInput流读取）
-      double r = in.readDouble();
-      // 计算圆面积
-      var area = r * r * Math.PI;
-      // 把面积发回给客户端
-      out.writeDouble(area);
-      // 输出提示信息
-      System.out.println("\tRadius is : " + r);
-      System.out.println("\tArea   is : " + area);
-      
-      socket.close();
-      System.out.println("Server closed");
+        // 在控制台输出客户端连接信息
+        InetAddress address = socket.getInetAddress();
+        if (address.getHostAddress().contains("10")) {
+          continue;
+        }
+        System.out.println("Connected from " + address.getHostAddress());
+
+        // 在下面创建一个线程，让线程来干活 worker
+        new Worker(socket).start();
+      } // end while
+      serverSocket.close();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-    catch(IOException ex) {
-      ex.printStackTrace();
-    }
-  }
+  } // end main
 }
+
+
+// 创建一个线程类，用来计算圆面积
+class Worker extends Thread {
+  Socket socket = null;
+
+  public Worker(Socket s) {
+    this.socket = s;
+  }
+
+  @Override
+  public void run() {
+    try {
+      // 创建 Data Input/Output 流
+      DataInputStream dis = new DataInputStream(socket.getInputStream());
+      DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+
+      // Task1：首先让服务器能够接受客户端发来的单个半径并返回面积
+      // Task2：在Task1的基础上修改代码，加入while循环，使得服务器可以不断
+      // 接收半径、计算面积并将面积发回给客户端
+      double radius;
+      // 从客户端接收圆的半径（通过DataInput流读取）
+      radius = dis.readDouble();
+      // 计算圆面积
+      double area = 3.1415 * radius * radius;
+      // 把面积发回给客户端
+      dos.writeDouble(area);
+      // 输出提示信息
+      System.out.println("The area of circle with radius " + radius + " is: " + area);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  } // end run();
+}
+
+

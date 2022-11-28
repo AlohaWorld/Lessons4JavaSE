@@ -1,8 +1,8 @@
 /**
- * @(#)HelloJFX.java    1.0.0 09/05/2018
+ * @(#)HelloJFX.java 1.0.0 09/05/2018
  * @author cuiyidong
  * @version 1.0
- * 本例子演示错误放置main()的情形。本例子无法编译通过
+ *          本例子演示错误放置main()的情形。本例子无法编译通过
  */
 package unit04.jfxbasics;
 
@@ -27,24 +27,24 @@ class HelloJFXApp1 extends Application {
     // 设置舞台的标题(setTitle)
     primaryStage.setTitle("Hello, JavaFX!");
     // 将场景放到舞台上(setScene)
-    primaryStage.setScene(scene); 
+    primaryStage.setScene(scene);
     // 显示舞台(show)
     primaryStage.show();
   }
-  
-/**
- *  launch是静态函数。如果要将main()移出Application派生类，那么要做特殊处理，
- *  @see Hello.JFX.java 
- 
+
+  /**
+   *  launch是静态函数。如果要将main()移出Application派生类，那么要做特殊处理，
+   *  @see Hello.JFX.java 
+   
   public static void main(String[] args) { 
     launch(args);
   }
- */
+   */
 }
 
 
 public class HelloJFXError {
-   public static void main(String[] args) { 
+  public static void main(String[] args) {
     Application.launch(HelloJFXApp1.class, args);
   }
 }

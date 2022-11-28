@@ -20,8 +20,7 @@ public class BallPane extends Pane {
     getChildren().add(circle); // Place a ball into this pane
 
     // Create an animation for moving the ball
-    animation = new Timeline(
-      new KeyFrame(Duration.millis(5), e -> moveBall()));
+    animation = new Timeline(new KeyFrame(Duration.millis(5), e -> moveBall()));
     animation.setCycleCount(Timeline.INDEFINITE);
     animation.play(); // Start animation
   }
@@ -39,14 +38,13 @@ public class BallPane extends Pane {
   }
 
   public void decreaseSpeed() {
-    animation.setRate(
-      animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
+    animation.setRate(animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
   }
 
   public DoubleProperty rateProperty() {
     return animation.rateProperty();
   }
-  
+
   protected void moveBall() {
     // Check boundaries
     if (x < radius || x > getWidth() - radius) {

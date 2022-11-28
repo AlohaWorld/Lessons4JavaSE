@@ -23,13 +23,13 @@ public class Demo09P51 {
         // 获取从键盘输入的信息
         answer = scanner.next();
 
-        // 创建 InetAddress对象
-        InetAddress address = InetAddress.getByName(answer);
-        // 用InetAddress对象转换IP/域名
-        System.out.println("Host: " + address.getCanonicalHostName());
-        System.out.println("IP:   " + address.getHostAddress());
-        // 用InetAddress对象判断目的地址是否可达
-        System.out.println("Reachable? " + address.isReachable(2000));
+        // 创建 InetAddress对象，使用getByName()
+
+        // 用InetAddress对象转换IP/域名getCanonicalHostName(), getHostAddress
+        System.out.println("Host: " + );
+        System.out.println("IP:   " + );
+        // 用InetAddress对象判断目的地址是否可达 isReachable()
+        System.out.println("Reachable? " + );
 
       }
     } catch (Exception e) {

@@ -17,7 +17,7 @@ public class TextIO {
     try {
       fr = new FileReader(file);
       fw = new FileWriter(file);
-      
+
       // 将字符串"Hello World!"写入到file
       String s1 = "Hello World!\n Welcom to Java";
       fw.write(s1.toCharArray());
@@ -30,9 +30,9 @@ public class TextIO {
 
     } catch (FileNotFoundException e) {
       e.printStackTrace();
-    } catch(IOException e) {
+    } catch (IOException e) {
       System.out.println("IO exception");
-    }finally {
+    } finally {
       try {
         fw.close();
         fr.close();
@@ -42,7 +42,6 @@ public class TextIO {
       }
 
     }
-
 
 
 

@@ -1,5 +1,5 @@
 /**
- * @(#)HelloJFX.java    1.0.0 09/05/2018
+ * @(#)HelloJFX.java 1.0.0 09/05/2018
  * @author cuiyidong
  * @version 1.0
  */
@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  * 代码可以参见HelloJFXError.java
  */
 public class HelloJFX {
-   public static void main(String[] args) { 
+  public static void main(String[] args) {
     Application.launch(HelloJFXApp.class, args);
   }
 }

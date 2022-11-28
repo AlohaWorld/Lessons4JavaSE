@@ -1,11 +1,10 @@
 package unit05;
 
-public class TestException  {
+public class TestException {
   public static void main(String[] args) {
     try {
       System.out.println(sum(new int[] {1, 2, 3, 4, 5}));
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       ex.printStackTrace();
       System.out.println("\n" + ex.getMessage());
       System.out.println("\n" + ex.toString());

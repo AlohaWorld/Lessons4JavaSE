@@ -13,20 +13,28 @@ public class KeyEventDemo extends Application {
     Pane pane = new Pane();
     Text text = new Text(20, 20, "A");
     pane.getChildren().add(text);
-    
+
     // Create a scene and place the pane in the stage
     Scene scene = new Scene(pane);
     primaryStage.setTitle("KeyEventDemo"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
-    
-    text.setOnKeyPressed(e -> {          
+
+    text.setOnKeyPressed(e -> {
       switch (e.getCode()) {
-        case DOWN: text.setY(text.getY() + 10); break;
-        case UP:  text.setY(text.getY() - 10); break;
-        case LEFT: text.setX(text.getX() - 10); break;
-        case RIGHT: text.setX(text.getX() + 10); break;
-        default: 
+        case DOWN:
+          text.setY(text.getY() + 10);
+          break;
+        case UP:
+          text.setY(text.getY() - 10);
+          break;
+        case LEFT:
+          text.setX(text.getX() - 10);
+          break;
+        case RIGHT:
+          text.setX(text.getX() + 10);
+          break;
+        default:
           if (e.getText().length() > 0)
             text.setText(e.getText());
       }
@@ -41,5 +49,5 @@ public class KeyEventDemo extends Application {
   public static void main(String[] args) {
     launch(args);
   }
-} 
+}
 

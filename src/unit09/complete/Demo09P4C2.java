@@ -24,9 +24,9 @@ public class Demo09P4C2 {
       var in = new ObjectInputStream(socket.getInputStream());
       // 创建一个Data Stream输出流对象，向服务器发送数据
       var out = new DataOutputStream(socket.getOutputStream());
-      
-      double r  = 1;
-      
+
+      double r = 1;
+
       // 加入while循环，使得客户端可以不断给服务器发送半径并从服务器获取圆对象
       while (r > 0) {
         // 提示并从键盘读入一个浮点数作为圆的半径
@@ -42,11 +42,9 @@ public class Demo09P4C2 {
         Circle c = (Circle) in.readObject();
         System.out.println("The received circle : " + c.toString());
       }
-    }
-    catch (IOException | ClassNotFoundException ex) {
+    } catch (IOException | ClassNotFoundException ex) {
       System.out.println(ex.toString());
-    }
-    finally {
+    } finally {
       scanner.close();
       // close socket connection
       try {

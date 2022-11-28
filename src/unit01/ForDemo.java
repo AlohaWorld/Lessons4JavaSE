@@ -14,15 +14,14 @@ public class ForDemo {
    * @author cyd
    * @date 2018年9月26日 上午11:19:18
    */
-    public static void main(String[] args) {
-    int arr[] = {1,3,5,7,9};
+  public static void main(String[] args) {
+    int arr[] = {1, 3, 5, 7, 9};
     int count = 0;
-    for(int item: arr) {
+    for (int item : arr) {
       System.out.println(item);
-      count ++ ;
+      count++;
     }
-    System.out.println("Count is: " + count + 
-        " "+(new Test9()).show());
+    System.out.println("Count is: " + count + " " + (new Test9()).show());
 
   }
 }

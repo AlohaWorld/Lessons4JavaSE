@@ -15,21 +15,21 @@ public class ShowCircle extends Application {
     circle.setCenterX(100);
     circle.setCenterY(100);
     circle.setRadius(50);
-    //Stroke:边线画笔，可设置Color, ImagePattern, LinearGradient, RadialGradient
-    circle.setStroke(Color.BLACK); 
+    // Stroke:边线画笔，可设置Color, ImagePattern, LinearGradient, RadialGradient
+    circle.setStroke(Color.BLACK);
     circle.setFill(null);
-    
-    // Create a pane to hold the circle 
+
+    // Create a pane to hold the circle
     Pane pane = new Pane();
     pane.getChildren().add(circle);
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(pane, 200, 200);
     primaryStage.setTitle("ShowCircle"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

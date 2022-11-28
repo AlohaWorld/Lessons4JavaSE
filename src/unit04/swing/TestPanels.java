@@ -2,7 +2,8 @@ package unit04.swing;
 
 import java.awt.*;
 import javax.swing.*;
-//Draw an oven panel
+
+// Draw an oven panel
 public class TestPanels extends JFrame {
   public TestPanels() {
     // Create panel p1 for the buttons and set GridLayout

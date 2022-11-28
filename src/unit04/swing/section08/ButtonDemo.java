@@ -8,8 +8,7 @@ import unit04.MessagePanel;
 
 public class ButtonDemo extends JFrame {
   // Create a panel for displaying message
-  protected MessagePanel messagePanel
-    = new MessagePanel("Welcome to Java");
+  protected MessagePanel messagePanel = new MessagePanel("Welcome to Java");
 
   // Declare two buttons to move the message left and right
   private JButton jbtLeft = new JButton("<=");
@@ -38,10 +37,10 @@ public class ButtonDemo extends JFrame {
     jbtRight.setMnemonic('R');
 
     // Set icons and remove text
-//    jbtLeft.setIcon(new ImageIcon("image/left.gif"));
-//    jbtRight.setIcon(new ImageIcon("image/right.gif"));
-//    jbtLeft.setText(null);
-//    jbtRight.setText(null);
+    // jbtLeft.setIcon(new ImageIcon("image/left.gif"));
+    // jbtRight.setIcon(new ImageIcon("image/right.gif"));
+    // jbtLeft.setText(null);
+    // jbtRight.setText(null);
 
     // Set tool tip text on the buttons
     jbtLeft.setToolTipText("Move message to left");

@@ -8,25 +8,18 @@ public class ListDemo extends JFrame {
   final int NUMBER_OF_FLAGS = 9;
 
   // Declare an array of Strings for flag titles
-  private String[] flagTitles = {"Canada", "China", "Denmark",
-    "France", "Germany", "India", "Norway", "United Kingdom",
-    "United States of America"};
+  private String[] flagTitles = {"Canada", "China", "Denmark", "France", "Germany", "India",
+      "Norway", "United Kingdom", "United States of America"};
 
   // The list for selecting countries
   private JList jlst = new JList(flagTitles);
 
   // Declare an ImageIcon array for the national flags of 9 countries
-  private ImageIcon[] imageIcons = {
-    new ImageIcon("image/ca.gif"),
-    new ImageIcon("image/china.gif"),
-    new ImageIcon("image/denmark.gif"),
-    new ImageIcon("image/fr.gif"),
-    new ImageIcon("image/germany.gif"),
-    new ImageIcon("image/india.gif"),
-    new ImageIcon("image/norway.gif"),
-    new ImageIcon("image/uk.gif"),
-    new ImageIcon("image/us.gif")
-  };
+  private ImageIcon[] imageIcons = {new ImageIcon("image/ca.gif"), new ImageIcon("image/china.gif"),
+      new ImageIcon("image/denmark.gif"), new ImageIcon("image/fr.gif"),
+      new ImageIcon("image/germany.gif"), new ImageIcon("image/india.gif"),
+      new ImageIcon("image/norway.gif"), new ImageIcon("image/uk.gif"),
+      new ImageIcon("image/us.gif")};
 
   // Arrays of labels for displaying images
   private JLabel[] jlblImageViewer = new JLabel[NUMBER_OF_FLAGS];
@@ -46,8 +39,7 @@ public class ListDemo extends JFrame {
 
     for (int i = 0; i < NUMBER_OF_FLAGS; i++) {
       p.add(jlblImageViewer[i] = new JLabel());
-      jlblImageViewer[i].setHorizontalAlignment
-        (SwingConstants.CENTER);
+      jlblImageViewer[i].setHorizontalAlignment(SwingConstants.CENTER);
     }
 
     // Add p and the list to the frame

@@ -15,18 +15,18 @@ public class DescriptionPane extends BorderPane {
 
   /** Text area for displaying text */
   private TextArea taDescription = new TextArea();
-  
+
   public DescriptionPane() {
     // Center the icon and text and place the text under the icon
     lblImageTitle.setContentDisplay(ContentDisplay.TOP);
-    lblImageTitle.setPrefSize(200,  100);
-    
+    lblImageTitle.setPrefSize(200, 100);
+
     // Set the font in the label and the text field
     lblImageTitle.setFont(new Font("SansSerif", 16));
     taDescription.setFont(new Font("Serif", 14));
-    
- //   taDescription.setWrapText(true);
-  //  taDescription.setEditable(false);
+
+    // taDescription.setWrapText(true);
+    // taDescription.setEditable(false);
 
     // Create a scroll pane to hold the text area
     ScrollPane scrollPane = new ScrollPane(taDescription);
@@ -36,7 +36,7 @@ public class DescriptionPane extends BorderPane {
     setCenter(scrollPane);
     setPadding(new Insets(5, 5, 5, 5));
   }
-  
+
   /** Set the title */
   public void setTitle(String title) {
     lblImageTitle.setText(title);

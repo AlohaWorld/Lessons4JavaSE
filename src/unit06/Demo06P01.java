@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Demo06P01 {
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     // Create a File object, check its methods
     // Scanner: read data from a text file
     // PrintWriter: write data to a text file
@@ -37,13 +37,12 @@ public class Demo06P01 {
      *  RandomAccessFile: read(), write(), seek()
      */
     File f = new File("Demo06.txt");
-    
-    try (
-        FileInputStream in = new FileInputStream(f);
+
+    try (FileInputStream in = new FileInputStream(f);
         FileOutputStream out = new FileOutputStream("Demo06.log");
         RandomAccessFile ras = new RandomAccessFile("Demo06p01.txt", "rw");
 
-        ){
+    ) {
       ras.seek(3);
       System.out.println(ras.read());
 

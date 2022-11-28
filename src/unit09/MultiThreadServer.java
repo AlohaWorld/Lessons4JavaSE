@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class MultiThreadServer extends Application {
   // Text area for displaying contents
   private TextArea ta = new TextArea();
-  
+
   // Number a client
   private int clientNo = 0;
 
@@ -25,43 +25,40 @@ public class MultiThreadServer extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
 
-    new Thread( () -> {
+    new Thread(() -> {
       try {
         // Create a server socket
         ServerSocket serverSocket = new ServerSocket(8000);
-        ta.appendText("MultiThreadServer started at " 
-          + new Date() + '\n');
-    
+        ta.appendText("MultiThreadServer started at " + new Date() + '\n');
+
         while (true) {
           // Listen for a new connection request
           Socket socket = serverSocket.accept();
-    
+
           // Increment clientNo
           clientNo++;
-          
-          Platform.runLater( () -> {
+
+          Platform.runLater(() -> {
             // Display the client number
-            ta.appendText("Starting thread for client " + clientNo +
-              " at " + new Date() + '\n');
+            ta.appendText("Starting thread for client " + clientNo + " at " + new Date() + '\n');
 
             // Find the client's host name, and IP address
             InetAddress inetAddress = socket.getInetAddress();
-            ta.appendText("Client " + clientNo + "'s host name is "
-              + inetAddress.getHostName() + "\n");
-            ta.appendText("Client " + clientNo + "'s IP Address is "
-              + inetAddress.getHostAddress() + "\n");
+            ta.appendText(
+                "Client " + clientNo + "'s host name is " + inetAddress.getHostName() + "\n");
+            ta.appendText(
+                "Client " + clientNo + "'s IP Address is " + inetAddress.getHostAddress() + "\n");
           });
-          
+
           // Create and start a new thread for the connection
           new Thread(new HandleAClient(socket)).start();
         }
-      }
-      catch(IOException ex) {
+      } catch (IOException ex) {
         System.err.println(ex);
       }
     }).start();
   }
-  
+
   // Define the thread class for handling new connection
   class HandleAClient implements Runnable {
     private Socket socket; // A connected socket
@@ -75,10 +72,8 @@ public class MultiThreadServer extends Application {
     public void run() {
       try {
         // Create data input and output streams
-        DataInputStream inputFromClient = new DataInputStream(
-          socket.getInputStream());
-        DataOutputStream outputToClient = new DataOutputStream(
-          socket.getOutputStream());
+        DataInputStream inputFromClient = new DataInputStream(socket.getInputStream());
+        DataOutputStream outputToClient = new DataOutputStream(socket.getOutputStream());
 
         // Continuously serve the client
         while (true) {
@@ -90,20 +85,18 @@ public class MultiThreadServer extends Application {
 
           // Send area back to the client
           outputToClient.writeDouble(area);
-          
+
           Platform.runLater(() -> {
-            ta.appendText("radius received from client: " +
-              radius + '\n');
+            ta.appendText("radius received from client: " + radius + '\n');
             ta.appendText("Area found: " + area + '\n');
           });
         }
-      }
-      catch(IOException ex) {
+      } catch (IOException ex) {
         ex.printStackTrace();
       }
     }
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

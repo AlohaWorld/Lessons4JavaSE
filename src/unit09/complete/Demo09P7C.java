@@ -23,16 +23,17 @@ public class Demo09P7C {
     try {
       // get a datagram socket
       socket = new DatagramSocket();
-      
+
       // get the address with InetAddress.getByName
       address = InetAddress.getByName("localhost");
-      
-      // Create a send packet with DatagramPacket(buffer, length, InetAddress, port)
+
+      // Create a send packet with DatagramPacket(buffer, length, InetAddress,
+      // port)
       sendPacket = new DatagramPacket(buf, buf.length, address, 8000);
-      
+
       // Create a receive packet with DatagramPacket(buffer, length)
       receivePacket = new DatagramPacket(buf, buf.length);
-      
+
       // Initialize buffer for each iteration with Arrays.fill
       Arrays.fill(buf, (byte) 0);
 
@@ -40,24 +41,26 @@ public class Demo09P7C {
       System.out.println("Please input radius : ");
       Scanner scanner = new Scanner(System.in);
       double r = scanner.nextDouble();
-      
+
       // send radius to the server in a packet with DatagramPacket.setData
       sendPacket.setData(Double.valueOf(r).toString().getBytes());
-      
+
       // send the packet with DatagramSocket.send(DatagramPacket)
       socket.send(sendPacket);
 
-      // receive area from the server in a packet with DatagramSocket.receive(DatagramPacket)      
+      // receive area from the server in a packet with
+      // DatagramSocket.receive(DatagramPacket)
       socket.receive(receivePacket);
 
-      // Display the information. The information is stored in the bytes buffer array
+      // Display the information. The information is stored in the bytes buffer
+      // array
       System.out.println("Radius is " + r + "\n");
-      System.out.println("Area received from the server is " + Double.parseDouble(new String(buf).trim())
-          + '\n');
-      
+      System.out.println(
+          "Area received from the server is " + Double.parseDouble(new String(buf).trim()) + '\n');
+
       scanner.close();
     } catch (IOException ex) {
       ex.printStackTrace();
-    } 
+    }
   }
 }

@@ -24,9 +24,9 @@ public class Demo09P2C {
       var in = new DataInputStream(socket.getInputStream());
       // 创建一个Data Stream输出流对象，向服务器发送数据
       var out = new DataOutputStream(socket.getOutputStream());
-      
-      double r  = 1;
-      
+
+      double r = 1;
+
       // 加入while循环，使得客户端可以不断给服务器发送半径并从服务器获取面积
       while (r > 0) {
         // 提示并从键盘读入一个浮点数作为圆的半径
@@ -42,11 +42,9 @@ public class Demo09P2C {
         var area = in.readDouble();
         System.out.println("Area is : " + area);
       }
-    }
-    catch (IOException ex) {
+    } catch (IOException ex) {
       System.out.println(ex.toString());
-    }
-    finally {
+    } finally {
       scanner.close();
       // close socket connection
       try {

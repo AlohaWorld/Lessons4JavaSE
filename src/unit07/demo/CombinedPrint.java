@@ -6,9 +6,9 @@ public class CombinedPrint {
 
     PrintNumThread pnt = new PrintNumThread();
     PrintCharRunnable pcr = new PrintCharRunnable(pnt);
-    Thread th = new Thread( pcr );
-    
-    th.start(); // char 
+    Thread th = new Thread(pcr);
+
+    th.start(); // char
 
     pnt.start(); // num
 

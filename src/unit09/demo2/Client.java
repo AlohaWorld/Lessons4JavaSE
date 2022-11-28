@@ -6,14 +6,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/*
- * Questions: 
- * Which line registers an event listener? 
- * Which line handles the event? 
- * Which line connects to server? 
- * Which line send information to server? 
- * Which line get information from server?
- */
+/* Questions:
+ * Which line registers an event listener?
+ * Which line handles the event?
+ * Which line connects to server?
+ * Which line send information to server?
+ * Which line get information from server? */
 public class Client extends JFrame implements ActionListener {
   // Text field jtf for receiving radius
 
@@ -25,7 +23,7 @@ public class Client extends JFrame implements ActionListener {
     new Client();
   }
 
-  //ctor
+  // ctor
   public Client() {
     // Panel p to hold the label and text field
     JPanel p = new JPanel();
@@ -38,7 +36,7 @@ public class Client extends JFrame implements ActionListener {
     getContentPane().add(p, BorderLayout.NORTH);
     getContentPane().add(new JScrollPane(jta), BorderLayout.CENTER);
 
-    //register action listener for jtf
+    // register action listener for jtf
 
     setTitle("Client");
     setSize(500, 300);
@@ -64,8 +62,8 @@ public class Client extends JFrame implements ActionListener {
         // Get the radius from the text field
         double radius = Double.parseDouble(jtf.getText().trim());
 
-        // write  radius to the server stream
-        
+        // write radius to the server stream
+
         // flush stream
 
         // read area from the server stream

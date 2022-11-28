@@ -57,10 +57,9 @@ public class MultipleWindowsDemo extends JFrame {
       char character = text.charAt(i);
 
       if ((character >= 'A') && (character <= 'Z')) {
-        count[(int)character - 65]++; // The ASCII for 'A' is 65
-      }
-      else if ((character >= 'a') && (character <= 'z')) {
-        count[(int)character - 97]++; // The ASCII for 'a' is 97
+        count[(int) character - 65]++; // The ASCII for 'A' is 65
+      } else if ((character >= 'a') && (character <= 'z')) {
+        count[(int) character - 97]++; // The ASCII for 'a' is 97
       }
     }
 

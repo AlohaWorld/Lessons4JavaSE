@@ -29,24 +29,25 @@ public class Demo09P2S {
       DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
       double r;
-      while(true) {
+      // 加入while循环，使得服务器不断接收半径并发送面积
+      while (true) {
         // 从客户端接收圆的半径（通过DataInput流读取）
         r = in.readDouble();
-        if(r < 0.0)
+        // 半径小于0，则退出循环
+        if (r < 0.0)
           break;
         // 计算圆面积
-        var area = r * r * Math.PI;
+        double area = r * r * Math.PI;
         // 把面积发回给客户端
         out.writeDouble(area);
         // 输出提示信息
         System.out.println("\tRadius is : " + r);
         System.out.println("\tArea   is : " + area);
       }
-      
+
       socket.close();
       System.out.println("Server closed");
-    }
-    catch(IOException ex) {
+    } catch (IOException ex) {
       ex.printStackTrace();
     }
   }

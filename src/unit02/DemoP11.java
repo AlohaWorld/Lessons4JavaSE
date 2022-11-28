@@ -1,30 +1,42 @@
 package unit02;
 
 public class DemoP11 {
- 
+
   public static void main(String[] args) {
-    int[] c = {0,1,2,3,4};
-    demo0 d = new demo0();
-    int[] z = d.reverse(c);
-    d.print(z);
-    d.print(c);
+    // 创建一个整型数组
+    int[] arr = {1, 2, 3, 4, 5};
+
+    DemoP11 d = new DemoP11();
+    // 反转数组元素
+    int[] arr2 = d.reverse(arr);
+    // 打印原数组与反转后的数组
+    d.print(arr);
+    d.print(arr2);
+    // 将reverse和print函数放到一个类中，创建这个类的对象，操纵数组
 
   }
+
+  int[] reverse(int[] a) {
+    int[] t = new int[a.length];
+    for (int i = 0; i < a.length; i++) {
+      t[i] = a[a.length - i - 1];
+    }
+    return t;
+  }
+
+  void print(int[] a) {
+    for (int i : a) {
+      System.out.println(i);
+    }
+  }
+
 }
 
+
+// 创建一个类
 class demo0 {
-  //private int[] a = {0,1,2,3,4,5};
-  int[] reverse(int[] x) {
-    for(int i =0;i < x.length/2; i++) {
-      int t = x[i];
-      x[i] = x[x.length-i-1]; //?
-      x[x.length-i-1] = t;
-    }
-    return x;
-  }
-  public void print(int[] x) {
-    for(int i : x) {
-        System.out.println(i);
-    }
-  }
+  // reverse函数
+
+  // print函数；考虑使用基于范围的for循环
+  public void print(int[] x) {}
 }

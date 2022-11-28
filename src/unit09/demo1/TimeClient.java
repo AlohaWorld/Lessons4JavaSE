@@ -17,7 +17,7 @@ public class TimeClient extends JFrame {
     TimeClient client = new TimeClient();
     StillClock clock = new StillClock();
     client.add(clock);
-    client.setSize(400,400);
+    client.setSize(400, 400);
     client.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     client.setVisible(true);
 
@@ -26,12 +26,15 @@ public class TimeClient extends JFrame {
   }
 }
 
+
 @SuppressWarnings("deprecation")
 class OnTimer implements ActionListener {
   private StillClock clock;
+
   public OnTimer(StillClock clock) {
     this.clock = clock;
   }
+
   @Override
   public void actionPerformed(ActionEvent e) {
     ObjectInputStream os;
@@ -50,5 +53,5 @@ class OnTimer implements ActionListener {
       ex.printStackTrace();
     }
   }
-  
+
 }

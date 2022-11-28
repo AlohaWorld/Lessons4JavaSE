@@ -6,14 +6,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/*
- * Questions: 
- * Which line registers an event listener? 
- * Which line handles the event? 
- * Which line connects to server? 
- * Which line send information to server? 
- * Which line get information from server?
- */
+/* Questions:
+ * Which line registers an event listener?
+ * Which line handles the event?
+ * Which line connects to server?
+ * Which line send information to server?
+ * Which line get information from server? */
 public class Client extends JFrame implements ActionListener {
   // Text field for receiving radius
   private JTextField jtf = new JTextField();

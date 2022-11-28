@@ -14,14 +14,13 @@ public class ChatServer1 {
 
     Socket socket = ss.accept();
     System.out.println("Client connected");
-    DataInputStream input = new DataInputStream(
-        socket.getInputStream());
+    DataInputStream input = new DataInputStream(socket.getInputStream());
     String line;
     while (true) {
-      if((line = input.readUTF()) != null) {
-        if(line.equals("exit")) {
+      if ((line = input.readUTF()) != null) {
+        if (line.equals("exit")) {
           System.out.println("Client disconnected");
-          break; //退出循环
+          break; // 退出循环
         } else { // 将信息打印到屏幕上
           System.out.println(line);
         }

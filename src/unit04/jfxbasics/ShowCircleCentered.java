@@ -9,21 +9,21 @@ import javafx.stage.Stage;
 
 public class ShowCircleCentered extends Application {
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {    
-    // Create a pane to hold the circle 
+  public void start(Stage primaryStage) {
+    // Create a pane to hold the circle
     Pane pane = new Pane();
-    
+
     // Create a circle and set its properties
     Circle circle = new Circle();
-    
+
     // Binding properties
     // circle.setCenterX(100);
     circle.centerXProperty().bind(pane.widthProperty().divide(2));
     // circle.setCenterY(100);
     circle.centerYProperty().bind(pane.heightProperty().divide(2));
-    
+
     circle.setRadius(50);
-    circle.setStroke(Color.BLACK); 
+    circle.setStroke(Color.BLACK);
     circle.setFill(Color.WHITE);
     pane.getChildren().add(circle); // Add circle to the pane
 
@@ -33,7 +33,7 @@ public class ShowCircleCentered extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

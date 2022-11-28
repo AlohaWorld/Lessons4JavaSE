@@ -15,6 +15,7 @@ public class Plot {
   }
 }
 
+
 @SuppressWarnings("serial")
 class Function extends JPanel {
   final int NPOINTS = 200;
@@ -25,27 +26,28 @@ class Function extends JPanel {
   final double ZOOM = 50.0;
 
   public Function() {
-    for(int i = 0 ; i < NPOINTS; i++) {
-      x[i] = i*Math.PI/180;
-      y[i] = -2 * x[i] * Math.sin( x[i] * x[i]);
+    for (int i = 0; i < NPOINTS; i++) {
+      x[i] = i * Math.PI / 180;
+      y[i] = -2 * x[i] * Math.sin(x[i] * x[i]);
     }
   }
 
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    //Draw the axis
+    // Draw the axis
     g.setColor(Color.blue);
-    g.drawLine((int)oX, (int)oY, (int)(oX+300), (int)oY); //x axis
-    g.drawLine((int)oX, (int)(oY-400), (int)oX, (int)(oY+200)); //y axis
+    g.drawLine((int) oX, (int) oY, (int) (oX + 300), (int) oY); // x axis
+    g.drawLine((int) oX, (int) (oY - 400), (int) oX, (int) (oY + 200)); // y
+                                                                        // axis
 
-    //Transform the coordination
+    // Transform the coordination
     int x1[] = new int[NPOINTS];
     int y1[] = new int[NPOINTS];
-    
-    for(int i=0; i<NPOINTS; i++) {
-      x1[i] = (int)(x[i]*ZOOM)+ oX;
-      y1[i] = (int)(y[i]*ZOOM) + oY;
+
+    for (int i = 0; i < NPOINTS; i++) {
+      x1[i] = (int) (x[i] * ZOOM) + oX;
+      y1[i] = (int) (y[i] * ZOOM) + oY;
     }
 
     // Draw the curve

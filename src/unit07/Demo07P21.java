@@ -1,17 +1,21 @@
 package unit07;
 
+/**
+ * @desc 基于Demo07P11的存取款例子，修改代码，使得线程之间同步从而避免账户余额出错
+ */
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Demo07P21 {
   public static void main(String[] args) {
-    Account account = new Account();
+    // 创建账户对象
+
     // Here we use thread pool to manage threads
     ExecutorService executor = Executors.newCachedThreadPool();
 
-    // Create and launch 100 threads
+    // 创建100个线程用于存钱
     for (int i = 0; i < 100; i++) {
-      executor.execute(new AddAPennyThread(account));
+      // executor.execute(new 存钱线程);
     }
 
     executor.shutdown();
@@ -19,41 +23,15 @@ public class Demo07P21 {
     // Wait until all tasks are finished
     while (!executor.isTerminated()) {
     }
-
-    System.out.println("What is balance ? " + account.getBalance());
+    // 输出银行账户余额
   }
 }
+/**
+ * @task 创建一个线程类，用于给账户存款
+ *
+ */
 
-// A thread for adding a penny to the account
-class AddAPennyThread implements Runnable {
-  private Account account;
-  AddAPennyThread(Account account) {
-    this.account = account;
-  }
-  public void run() {
-    account.deposit(1);
-  }
-}
-
-
-class Account {
-  private int balance = 0;
-
-  public int getBalance() {
-    return balance;
-  }
-
-  public void deposit(int amount) {
-    int newBalance = balance + amount;
-
-    // This delay is deliberately added to magnify the
-    // data-corruption problem and make it easy to see.
-    try {
-      Thread.sleep(1);
-    } catch (InterruptedException ex) {
-    }
-
-    balance = newBalance;
-  }
-}
+/**
+ * 借用Demo07P11的账户类或者另外创建一个账户类c
+ */
 

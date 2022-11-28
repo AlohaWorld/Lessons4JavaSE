@@ -12,8 +12,7 @@ public class DisplayClock extends Application {
   public void start(Stage primaryStage) {
     // Create a clock and a label
     ClockPane clock = new ClockPane();
-    String timeString = clock.getHour() + ":" + clock.getMinute() 
-      + ":" + clock.getSecond();
+    String timeString = clock.getHour() + ":" + clock.getMinute() + ":" + clock.getSecond();
     Label lblCurrentTime = new Label(timeString);
 
     // Place clock and label in border pane

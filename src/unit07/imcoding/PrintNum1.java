@@ -10,21 +10,21 @@ public class PrintNum1 {
     int j = 0;
     String s = new String();
 
-    for(int i=0; i<100; i++) {
+    for (int i = 0; i < 100; i++) {
 
       s = (j++ + " ");
       System.out.print(s);
 
       Thread.yield();
-      
+
       Thread.sleep(50);
-      
-      if(j%10 == 0) {
+
+      if (j % 10 == 0) {
         j = 0;
         System.out.print("\n");
       }
-      
-      if(System.in.available() > 0) {
+
+      if (System.in.available() > 0) {
         System.exit(0);
       }
     }

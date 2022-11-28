@@ -14,7 +14,7 @@ public class TimeServer {
     final int port = 8100;
     ServerSocket ss = new ServerSocket(port);
     InetAddress saddr = ss.getInetAddress();
-    System.out.println("Server started at "+saddr.toString());
+    System.out.println("Server started at " + saddr.toString());
 
     ExecutorService es = Executors.newCachedThreadPool();
     while (true) {
@@ -24,11 +24,14 @@ public class TimeServer {
   }
 }
 
+
 class ServeTime implements Runnable {
   Socket socket;
+
   public ServeTime(Socket socket) {
     this.socket = socket;
   }
+
   public void run() {
     try {
       ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());

@@ -40,11 +40,11 @@ public class Demo09P61 extends Application {
     var hb = new HBox(10);
     hb.getChildren().addAll(address, tf);
     var wv = new WebView();
-    
+
     BorderPane bp = new BorderPane();
     bp.setTop(hb);
     bp.setBottom(wv);
-    
+
     // TextBox: setOnAction (EventHandler<ActionEvent> e)
     // new URL from TextBox's text
     // get a WebEngine from WebView and then load the url
@@ -53,7 +53,7 @@ public class Demo09P61 extends Application {
       try {
         url = new URL(tf.getText());
         var s = url.toURI().toString();
-        if(!s.startsWith("http://")) {
+        if (!s.startsWith("http://")) {
           wv.getEngine().loadContent("Error URL");
         }
         wv.getEngine().load(s);
@@ -61,7 +61,7 @@ public class Demo09P61 extends Application {
         e1.printStackTrace();
       }
     });
-    
+
     // new Scene; Stage: setScene, setTitle, show;
     var scene = new Scene(bp, 800, 500);
     primaryStage.setScene(scene);
@@ -69,7 +69,8 @@ public class Demo09P61 extends Application {
     primaryStage.show();
 
   }
-  public static void main(String[] args) {    
+
+  public static void main(String[] args) {
     Application.launch(args);
   }
 

@@ -30,9 +30,11 @@ public class TimeClient extends JFrame {
 
 }
 
+
 class OnTimer implements ActionListener {
-  private final int port  = 8100;
+  private final int port = 8100;
   private StillClock clock;
+
   public OnTimer(StillClock clock) {
     this.clock = clock;
   }
@@ -49,14 +51,16 @@ class OnTimer implements ActionListener {
   }
 }
 
+
 class GetTime extends Thread {
   private Socket socket;
   StillClock clock;
-  public GetTime(Socket socket, StillClock clock){
+
+  public GetTime(Socket socket, StillClock clock) {
     this.socket = socket;
     this.clock = clock;
   }
-  
+
   @SuppressWarnings("deprecation")
   public void run() {
     Date date;
@@ -67,7 +71,7 @@ class GetTime extends Thread {
       hour = date.getHours();
       min = date.getMinutes();
       sec = date.getSeconds();
-      
+
       synchronized (clock) {
         clock.setHour(hour);
         clock.setMinute(min);

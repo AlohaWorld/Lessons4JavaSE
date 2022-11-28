@@ -57,7 +57,7 @@ public class TestJoin {
         System.out.print(" " + i);
         try {
           if (i == 50)
-                printA.join();  // wait for printA to finish
+            printA.join(); // wait for printA to finish
         } catch (InterruptedException ex) {
           System.out.println(ex.getMessage());
         }

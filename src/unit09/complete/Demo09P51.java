@@ -15,14 +15,14 @@ public class Demo09P51 {
     // 创建一个Scanner对象从键盘输入信息
     var scanner = new Scanner(System.in);
     String answer, s;
-    
+
     // 开启循环，询问用户是否要继续输入，如果否则退出
     do {
       // 提示输入ip或名字
       System.out.println("Please input an IP or name: ");
       // 获取从键盘输入的信息
-      s  = scanner.next();
-      
+      s = scanner.next();
+
       try {
         // 创建 InetAddress对象
         InetAddress address = InetAddress.getByName(s);
@@ -31,15 +31,15 @@ public class Demo09P51 {
         System.out.println("IP address: " + address.getHostAddress());
         // 用InetAddress对象判断目的地址是否可达
         System.out.println("Reachable: " + address.isReachable(2000));
-      } catch(UnknownHostException e) {
+      } catch (UnknownHostException e) {
         System.err.println("Unknown host or IP address " + s);
-      } catch(IOException e2) {
+      } catch (IOException e2) {
         System.err.println("Can't reach " + s);
       }
-      
+
       System.out.println("Would you like to input another IP or name? (y or n) ");
       answer = scanner.next();
-    } while (answer.equalsIgnoreCase("y")); 
+    } while (answer.equalsIgnoreCase("y"));
 
   }
 }

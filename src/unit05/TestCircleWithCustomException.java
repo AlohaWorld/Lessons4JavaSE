@@ -6,22 +6,21 @@ public class TestCircleWithCustomException {
       new CircleWithCustomException(5);
       new CircleWithCustomException(-5);
       new CircleWithCustomException(0);
-    }
-    catch (InvalidRadiusException ex) {
+    } catch (InvalidRadiusException ex) {
       System.out.println(ex);
     }
-    
-    System.out.println("Number of objects created: " + 
-      CircleWithException.getNumberOfObjects());
+
+    System.out.println("Number of objects created: " + CircleWithException.getNumberOfObjects());
   }
 }
+
 
 class CircleWithCustomException {
   /** The radius of the circle */
   private double radius;
 
   /** The number of the objects created */
-  private static int numberOfObjects = 0;  
+  private static int numberOfObjects = 0;
 
   /** Construct a circle with radius 1 */
   public CircleWithCustomException() throws InvalidRadiusException {
@@ -29,8 +28,7 @@ class CircleWithCustomException {
   }
 
   /** Construct a circle with a specified radius */
-  public CircleWithCustomException(double newRadius) 
-      throws InvalidRadiusException {
+  public CircleWithCustomException(double newRadius) throws InvalidRadiusException {
     setRadius(newRadius);
     numberOfObjects++;
   }
@@ -41,10 +39,9 @@ class CircleWithCustomException {
   }
 
   /** Set a new radius */
-  public void setRadius(double newRadius) 
-      throws InvalidRadiusException {
+  public void setRadius(double newRadius) throws InvalidRadiusException {
     if (newRadius >= 0)
-      radius =  newRadius;
+      radius = newRadius;
     else
       throw new InvalidRadiusException(newRadius);
   }

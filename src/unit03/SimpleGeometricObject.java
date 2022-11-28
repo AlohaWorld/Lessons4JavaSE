@@ -4,7 +4,7 @@ public class SimpleGeometricObject {
   private String color = "white";
   private boolean filled;
   private java.util.Date dateCreated;
-  
+
   /** Construct a default geometric object */
   public SimpleGeometricObject() {
     dateCreated = new java.util.Date();
@@ -38,15 +38,14 @@ public class SimpleGeometricObject {
   public void setFilled(boolean filled) {
     this.filled = filled;
   }
-  
+
   /** Get dateCreated */
   public java.util.Date getDateCreated() {
     return dateCreated;
   }
-  
+
   /** Return a string representation of this object */
   public String toString() {
-    return "created on " + dateCreated + "\ncolor: " + color + 
-      " and filled: " + filled;
+    return "created on " + dateCreated + "\ncolor: " + color + " and filled: " + filled;
   }
 }

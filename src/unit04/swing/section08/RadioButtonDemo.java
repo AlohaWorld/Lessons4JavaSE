@@ -19,16 +19,16 @@ public class RadioButtonDemo extends CheckBoxDemo {
     frame.setVisible(true);
   }
 
-  public RadioButtonDemo() {    // ctor
+  public RadioButtonDemo() { // ctor
     // Create a new panel to hold check boxes
     JPanel jpRadioButtons = new JPanel();
     jpRadioButtons.setLayout(new GridLayout(3, 1)); // 3 rows, 1 col
-    
+
     // Add 3 Radio Buttons
     jpRadioButtons.add(jrbRed = new JRadioButton("Red"));
     jpRadioButtons.add(jrbGreen = new JRadioButton("Green"));
     jpRadioButtons.add(jrbBlue = new JRadioButton("Blue"));
-    
+
     // Add Panel "jpRadioButtons" to the Frame; Put it left
     add(jpRadioButtons, BorderLayout.WEST);
 
@@ -45,44 +45,46 @@ public class RadioButtonDemo extends CheckBoxDemo {
 
     // Respond to User actions
     // Register listeners for check boxes
-    jrbRed.addActionListener(
-            new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        messagePanel.setForeground(Color.red);
-                    }
-                }
-            );  // END addActionListener
+    jrbRed.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        messagePanel.setForeground(Color.red);
+      }
+    }); // END addActionListener
     jrbGreen.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         messagePanel.setForeground(Color.green);
       }
     });
     jrbBlue.addActionListener(
-            // Here we don't use 
-            new blueActionListener(messagePanel)
-//            new ActionListener() {
-//      public void actionPerformed(ActionEvent e) {
-//        messagePanel.setForeground(Color.blue);
-//      }
-//    }
-            );
+        // Here we don't use
+        new blueActionListener(messagePanel)
+    // new ActionListener() {
+    // public void actionPerformed(ActionEvent e) {
+    // messagePanel.setForeground(Color.blue);
+    // }
+    // }
+    );
 
     // Set initial message color to blue
     jrbBlue.setSelected(true);
     messagePanel.setForeground(Color.blue);
   }
 }
+
+
 /* 
  * This block is to demonstrate non-inline object creation
  */
 class blueActionListener implements ActionListener {
-    private MessagePanel messagePanel_;
-    public void actionPerformed(ActionEvent e) {
-        messagePanel_.setForeground(Color.blue);
-    }
-    public blueActionListener(MessagePanel messagePanel) {  // ctor
-        messagePanel_ = messagePanel;
-    }
+  private MessagePanel messagePanel_;
+
+  public void actionPerformed(ActionEvent e) {
+    messagePanel_.setForeground(Color.blue);
+  }
+
+  public blueActionListener(MessagePanel messagePanel) { // ctor
+    messagePanel_ = messagePanel;
+  }
 }
 /*
  */

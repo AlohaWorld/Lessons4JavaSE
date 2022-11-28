@@ -17,8 +17,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-public class TicTacToeClient extends Application 
-    implements TicTacToeConstants {
+public class TicTacToeClient extends Application implements TicTacToeConstants {
   // Indicate whether the player has the turn
   private boolean myTurn = false;
 
@@ -29,7 +28,7 @@ public class TicTacToeClient extends Application
   private char otherToken = ' ';
 
   // Create and initialize cells
-  private Cell[][] cell =  new Cell[3][3];
+  private Cell[][] cell = new Cell[3][3];
 
   // Create and initialize a title label
   private Label lblTitle = new Label();
@@ -57,7 +56,7 @@ public class TicTacToeClient extends Application
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     // Pane to hold cell
-    GridPane pane = new GridPane(); 
+    GridPane pane = new GridPane();
     for (int i = 0; i < 3; i++)
       for (int j = 0; j < 3; j++)
         pane.add(cell[i][j] = new Cell(i, j), j, i);
@@ -66,12 +65,12 @@ public class TicTacToeClient extends Application
     borderPane.setTop(lblTitle);
     borderPane.setCenter(pane);
     borderPane.setBottom(lblStatus);
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(borderPane, 320, 350);
     primaryStage.setTitle("TicTacToeClient"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
-    primaryStage.show(); // Display the stage   
+    primaryStage.show(); // Display the stage
 
     // Connect to the server
     connectToServer();
@@ -87,8 +86,7 @@ public class TicTacToeClient extends Application
 
       // Create an output stream to send data to the server
       toServer = new DataOutputStream(socket.getOutputStream());
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       ex.printStackTrace();
     }
 
@@ -97,7 +95,7 @@ public class TicTacToeClient extends Application
       try {
         // Get notification from the server
         int player = fromServer.readInt();
-  
+
         // Am I player 1 or 2?
         if (player == PLAYER1) {
           myToken = 'X';
@@ -106,18 +104,16 @@ public class TicTacToeClient extends Application
             lblTitle.setText("Player 1 with token 'X'");
             lblStatus.setText("Waiting for player 2 to join");
           });
-  
+
           // Receive startup notification from the server
           fromServer.readInt(); // Whatever read is ignored
-  
+
           // The other player has joined
-          Platform.runLater(() -> 
-            lblStatus.setText("Player 2 has joined. I start first"));
-  
+          Platform.runLater(() -> lblStatus.setText("Player 2 has joined. I start first"));
+
           // It is my turn
           myTurn = true;
-        }
-        else if (player == PLAYER2) {
+        } else if (player == PLAYER2) {
           myToken = 'O';
           otherToken = 'X';
           Platform.runLater(() -> {
@@ -125,22 +121,20 @@ public class TicTacToeClient extends Application
             lblStatus.setText("Waiting for player 1 to move");
           });
         }
-  
+
         // Continue to play
-        while (continueToPlay) {      
+        while (continueToPlay) {
           if (player == PLAYER1) {
             waitForPlayerAction(); // Wait for player 1 to move
             sendMove(); // Send the move to the server
             receiveInfoFromServer(); // Receive info from the server
-          }
-          else if (player == PLAYER2) {
+          } else if (player == PLAYER2) {
             receiveInfoFromServer(); // Receive info from the server
             waitForPlayerAction(); // Wait for player 2 to move
             sendMove(); // Send player 2's move to the server
           }
         }
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         ex.printStackTrace();
       }
     }).start();
@@ -171,36 +165,28 @@ public class TicTacToeClient extends Application
       continueToPlay = false;
       if (myToken == 'X') {
         Platform.runLater(() -> lblStatus.setText("I won! (X)"));
-      }
-      else if (myToken == 'O') {
-        Platform.runLater(() -> 
-          lblStatus.setText("Player 1 (X) has won!"));
+      } else if (myToken == 'O') {
+        Platform.runLater(() -> lblStatus.setText("Player 1 (X) has won!"));
         receiveMove();
       }
-    }
-    else if (status == PLAYER2_WON) {
+    } else if (status == PLAYER2_WON) {
       // Player 2 won, stop playing
       continueToPlay = false;
       if (myToken == 'O') {
         Platform.runLater(() -> lblStatus.setText("I won! (O)"));
-      }
-      else if (myToken == 'X') {
-        Platform.runLater(() -> 
-          lblStatus.setText("Player 2 (O) has won!"));
+      } else if (myToken == 'X') {
+        Platform.runLater(() -> lblStatus.setText("Player 2 (O) has won!"));
         receiveMove();
       }
-    }
-    else if (status == DRAW) {
+    } else if (status == DRAW) {
       // No winner, game is over
       continueToPlay = false;
-      Platform.runLater(() -> 
-        lblStatus.setText("Game is over, no winner!"));
+      Platform.runLater(() -> lblStatus.setText("Game is over, no winner!"));
 
       if (myToken == 'O') {
         receiveMove();
       }
-    }
-    else {
+    } else {
       receiveMove();
       Platform.runLater(() -> lblStatus.setText("My turn"));
       myTurn = true; // It is my turn
@@ -228,7 +214,7 @@ public class TicTacToeClient extends Application
       this.column = column;
       this.setPrefSize(2000, 2000); // What happens without this?
       setStyle("-fx-border-color: black"); // Set cell's border
-      this.setOnMouseClicked(e -> handleMouseClick());  
+      this.setOnMouseClicked(e -> handleMouseClick());
     }
 
     /** Return token */
@@ -244,34 +230,25 @@ public class TicTacToeClient extends Application
 
     protected void repaint() {
       if (token == 'X') {
-        Line line1 = new Line(10, 10, 
-          this.getWidth() - 10, this.getHeight() - 10);
+        Line line1 = new Line(10, 10, this.getWidth() - 10, this.getHeight() - 10);
         line1.endXProperty().bind(this.widthProperty().subtract(10));
         line1.endYProperty().bind(this.heightProperty().subtract(10));
-        Line line2 = new Line(10, this.getHeight() - 10, 
-          this.getWidth() - 10, 10);
-        line2.startYProperty().bind(
-          this.heightProperty().subtract(10));
+        Line line2 = new Line(10, this.getHeight() - 10, this.getWidth() - 10, 10);
+        line2.startYProperty().bind(this.heightProperty().subtract(10));
         line2.endXProperty().bind(this.widthProperty().subtract(10));
-        
+
         // Add the lines to the pane
-        this.getChildren().addAll(line1, line2); 
-      }
-      else if (token == 'O') {
-        Ellipse ellipse = new Ellipse(this.getWidth() / 2, 
-          this.getHeight() / 2, this.getWidth() / 2 - 10, 
-          this.getHeight() / 2 - 10);
-        ellipse.centerXProperty().bind(
-          this.widthProperty().divide(2));
-        ellipse.centerYProperty().bind(
-            this.heightProperty().divide(2));
-        ellipse.radiusXProperty().bind(
-            this.widthProperty().divide(2).subtract(10));        
-        ellipse.radiusYProperty().bind(
-            this.heightProperty().divide(2).subtract(10));   
+        this.getChildren().addAll(line1, line2);
+      } else if (token == 'O') {
+        Ellipse ellipse = new Ellipse(this.getWidth() / 2, this.getHeight() / 2,
+            this.getWidth() / 2 - 10, this.getHeight() / 2 - 10);
+        ellipse.centerXProperty().bind(this.widthProperty().divide(2));
+        ellipse.centerYProperty().bind(this.heightProperty().divide(2));
+        ellipse.radiusXProperty().bind(this.widthProperty().divide(2).subtract(10));
+        ellipse.radiusYProperty().bind(this.heightProperty().divide(2).subtract(10));
         ellipse.setStroke(Color.BLACK);
         ellipse.setFill(Color.WHITE);
-        
+
         getChildren().add(ellipse); // Add the ellipse to the pane
       }
     }
@@ -280,7 +257,7 @@ public class TicTacToeClient extends Application
     private void handleMouseClick() {
       // If cell is not occupied and the player has the turn
       if (token == ' ' && myTurn) {
-        setToken(myToken);  // Set the player's token in the cell
+        setToken(myToken); // Set the player's token in the cell
         myTurn = false;
         rowSelected = row;
         columnSelected = column;

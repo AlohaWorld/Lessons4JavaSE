@@ -16,8 +16,7 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 public class MediaDemo extends Application {
-  private static final String MEDIA_URL = 
-    "http://cs.armstrong.edu/liang/common/sample.mp4";
+  private static final String MEDIA_URL = "http://cs.armstrong.edu/liang/common/sample.mp4";
 
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
@@ -38,19 +37,17 @@ public class MediaDemo extends Application {
 
     Button rewindButton = new Button("<<");
     rewindButton.setOnAction(e -> mediaPlayer.seek(Duration.ZERO));
-    
+
     Slider slVolume = new Slider();
     slVolume.setPrefWidth(150);
     slVolume.setMaxWidth(Region.USE_PREF_SIZE);
     slVolume.setMinWidth(30);
     slVolume.setValue(50);
-    mediaPlayer.volumeProperty().bind(
-      slVolume.valueProperty().divide(100));
+    mediaPlayer.volumeProperty().bind(slVolume.valueProperty().divide(100));
 
     HBox hBox = new HBox(10);
     hBox.setAlignment(Pos.CENTER);
-    hBox.getChildren().addAll(playButton, rewindButton,
-      new Label("Volume"), slVolume);
+    hBox.getChildren().addAll(playButton, rewindButton, new Label("Volume"), slVolume);
 
     BorderPane pane = new BorderPane();
     pane.setCenter(mediaView);
@@ -60,7 +57,7 @@ public class MediaDemo extends Application {
     Scene scene = new Scene(pane, 650, 500);
     primaryStage.setTitle("MediaDemo"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
-    primaryStage.show(); // Display the stage    
+    primaryStage.show(); // Display the stage
   }
 
   /**

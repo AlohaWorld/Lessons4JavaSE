@@ -15,7 +15,8 @@ public class Histogram extends JPanel {
 
   /** Paint the histogram */
   protected void paintComponent(Graphics g) {
-    if (count == null) return; // No display if count is null
+    if (count == null)
+      return; // No display if count is null
 
     super.paintComponent(g);
 
@@ -23,7 +24,7 @@ public class Histogram extends JPanel {
     int width = getWidth();
     int height = getHeight();
     int interval = (width - 40) / count.length;
-    int individualWidth = (int)(((width - 40) / 24) * 0.60);
+    int individualWidth = (int) (((width - 40) / 24) * 0.60);
 
     // Find the maximum count. The maximum count has the highest bar
     int maxCount = 0;
@@ -39,15 +40,13 @@ public class Histogram extends JPanel {
     g.drawLine(10, height - 45, width - 10, height - 45);
     for (int i = 0; i < count.length; i++) {
       // Find the bar height
-      int barHeight =
-        (int)(((double)count[i] / (double)maxCount) * (height - 55));
+      int barHeight = (int) (((double) count[i] / (double) maxCount) * (height - 55));
 
       // Display a bar (i.e. rectangle)
-      g.drawRect(x, height - 45 - barHeight, individualWidth,
-        barHeight);
+      g.drawRect(x, height - 45 - barHeight, individualWidth, barHeight);
 
       // Display a letter under the base line
-      g.drawString((char)(65 + i) + "", x, height - 30);
+      g.drawString((char) (65 + i) + "", x, height - 30);
 
       // Move x for displaying the next character
       x += interval;

@@ -10,15 +10,14 @@ public class FinallyDemo {
 
       // Write formatted output to the file
       output.println("Welcome to Java");
-    }
-    catch (java.io.IOException ex) {
+    } catch (java.io.IOException ex) {
       ex.printStackTrace();
-    }
-    finally {
+    } finally {
       // Close the file
-      if (output != null) output.close();
+      if (output != null)
+        output.close();
     }
-    
-    System.out.println("End of the program");  
+
+    System.out.println("End of the program");
   }
 }

@@ -1,6 +1,6 @@
 package unit03;
 
-public class Apple extends Fruit{
+public class Apple extends Fruit {
   /*
   public Apple() { 
     System.out.println("Apple's ctor is invoked"); 
@@ -11,6 +11,7 @@ public class Apple extends Fruit{
     System.out.println("Apple created!");
   }
 }
+
 
 class Fruit {
   public Fruit(String name) {

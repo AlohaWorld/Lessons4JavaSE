@@ -4,8 +4,7 @@ public class ChainedExceptionDemo {
   public static void main(String[] args) {
     try {
       method1();
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       ex.printStackTrace();
     }
   }
@@ -13,8 +12,7 @@ public class ChainedExceptionDemo {
   public static void method1() throws Exception {
     try {
       method2();
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       throw new Exception("New info from method1", ex);
     }
   }

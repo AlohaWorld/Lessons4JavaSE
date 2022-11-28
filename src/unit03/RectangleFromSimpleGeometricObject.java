@@ -1,21 +1,18 @@
 package unit03;
 
-public class RectangleFromSimpleGeometricObject 
-    extends SimpleGeometricObject {
+public class RectangleFromSimpleGeometricObject extends SimpleGeometricObject {
   private double width;
   private double height;
 
-  public RectangleFromSimpleGeometricObject() {
-  }
+  public RectangleFromSimpleGeometricObject() {}
 
-  public RectangleFromSimpleGeometricObject(
-      double width, double height) {
+  public RectangleFromSimpleGeometricObject(double width, double height) {
     this.width = width;
     this.height = height;
   }
 
-  public RectangleFromSimpleGeometricObject(
-      double width, double height, String color, boolean filled) {
+  public RectangleFromSimpleGeometricObject(double width, double height, String color,
+      boolean filled) {
     this.width = width;
     this.height = height;
     setColor(color);

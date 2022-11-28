@@ -11,26 +11,27 @@ public class NumThread1 {
 
 }
 
-class NumThread extends Thread{
+
+class NumThread extends Thread {
   @Override
   public void run() {
     int j = 0;
-    for(int i = 0; i < 100; i++) {
-      System.out.print(j++ +" ");
+    for (int i = 0; i < 100; i++) {
+      System.out.print(j++ + " ");
 
       try {
         Thread.sleep(50);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
-      
-      if(j%10 == 0) {
+
+      if (j % 10 == 0) {
         j = 0;
         System.out.print("\n");
       }
-      
+
       try {
-        if(System.in.available() > 0) {
+        if (System.in.available() > 0) {
           System.exit(0);
         }
       } catch (IOException e) {

@@ -7,12 +7,12 @@ public class AssertionDemo {
     for (i = 0; i < 10; i++) {
       sum += i;
     }
-    
+
     // When an assertions is true, nothing happens.
-    assert i == 10; //i equals 10
+    assert i == 10; // i equals 10
     assert sum < 10 && sum < 5 * 10 : "sum is " + sum;
-    
-    System.out.println("i="+i+" sum="+sum);
+
+    System.out.println("i=" + i + " sum=" + sum);
   }
 }
 

@@ -9,8 +9,7 @@ public class IdentifyHostNameIP {
         InetAddress address = InetAddress.getByName(args[i]);
         System.out.print("Host name: " + address.getHostName() + " ");
         System.out.println("IP address: " + address.getHostAddress());
-      }
-      catch (UnknownHostException ex) {
+      } catch (UnknownHostException ex) {
         System.err.println("Unknown host or IP address " + args[i]);
       }
     }

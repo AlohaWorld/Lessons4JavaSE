@@ -13,7 +13,7 @@ public class TimeServer {
   public static void main(String[] args) throws IOException {
     final int port = 8200;
     ServerSocket ss = new ServerSocket(port);
-    System.out.println("Listen on " + port );
+    System.out.println("Listen on " + port);
     ExecutorService es = Executors.newCachedThreadPool();
 
     while (true) {
@@ -23,12 +23,15 @@ public class TimeServer {
   }
 
 }
+
+
 class TimeThread implements Runnable {
   private Socket socket;
+
   public TimeThread(Socket socket) {
     this.socket = socket;
   }
-  
+
   @Override
   public void run() {
     try {

@@ -14,12 +14,11 @@ public class BounceBallControl extends Application {
     ballPane.setOnMousePressed(e -> ballPane.pause());
     ballPane.setOnMouseReleased(e -> ballPane.play());
 
-    // Increase and decrease animation   
+    // Increase and decrease animation
     ballPane.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.UP) {
         ballPane.increaseSpeed();
-      } 
-      else if (e.getCode() == KeyCode.DOWN) {
+      } else if (e.getCode() == KeyCode.DOWN) {
         ballPane.decreaseSpeed();
       }
     });
@@ -29,7 +28,7 @@ public class BounceBallControl extends Application {
     primaryStage.setTitle("BounceBallControl"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
-    
+
     // Must request focus after the primary stage is displayed
     ballPane.requestFocus();
   }

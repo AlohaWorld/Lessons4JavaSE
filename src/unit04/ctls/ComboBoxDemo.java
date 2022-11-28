@@ -12,20 +12,15 @@ import javafx.scene.layout.BorderPane;
 
 public class ComboBoxDemo extends Application {
   // Declare an array of Strings for flag titles
-  private String[] flagTitles = {"Canada", "China", "Denmark", 
-      "France", "Germany", "India", "Norway", "United Kingdom",
-      "United States of America"};
+  private String[] flagTitles = {"Canada", "China", "Denmark", "France", "Germany", "India",
+      "Norway", "United Kingdom", "United States of America"};
 
   // Declare an ImageView array for the national flags of 9 countries
   private ImageView[] flagImage = {new ImageView("file:image/ca.gif"),
-      new ImageView("file:image/china.gif"), 
-      new ImageView("file:image/denmark.gif"), 
-      new ImageView("file:image/fr.gif"), 
-      new ImageView("file:image/germany.gif"),
-      new ImageView("file:image/india.gif"), 
-      new ImageView("file:image/norway.gif"),
-      new ImageView("file:image/uk.gif"), 
-      new ImageView("file:image/us.gif")};
+      new ImageView("file:image/china.gif"), new ImageView("file:image/denmark.gif"),
+      new ImageView("file:image/fr.gif"), new ImageView("file:image/germany.gif"),
+      new ImageView("file:image/india.gif"), new ImageView("file:image/norway.gif"),
+      new ImageView("file:image/uk.gif"), new ImageView("file:image/us.gif")};
 
   // Declare an array of strings for flag descriptions
   private String[] flagDescription = new String[9];
@@ -54,22 +49,21 @@ public class ComboBoxDemo extends Application {
 
     // Add combo box and description pane to the border pane
     BorderPane pane = new BorderPane();
-      
+
     BorderPane paneForComboBox = new BorderPane();
     paneForComboBox.setLeft(new Label("Select a country: "));
     paneForComboBox.setCenter(cbo);
     pane.setTop(paneForComboBox);
     cbo.setPrefWidth(400);
     cbo.setValue("Canada");
-    
-    ObservableList<String> items = 
-      FXCollections.observableArrayList(flagTitles);
-    cbo.getItems().addAll(items); 
+
+    ObservableList<String> items = FXCollections.observableArrayList(flagTitles);
+    cbo.getItems().addAll(items);
     pane.setCenter(descriptionPane);
-    
+
     // Display the selected country
     cbo.setOnAction(e -> setDisplay(items.indexOf(cbo.getValue())));
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(pane, 450, 170);
     primaryStage.setTitle("ComboBoxDemo"); // Set the stage title

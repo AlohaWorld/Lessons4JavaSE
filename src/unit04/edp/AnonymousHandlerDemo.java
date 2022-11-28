@@ -21,7 +21,7 @@ public class AnonymousHandlerDemo extends Application {
     Button btSave = new Button("Save");
     Button btPrint = new Button("Print");
     hBox.getChildren().addAll(btNew, btOpen, btSave, btPrint);
-    
+
     // Create and register the handler
     btNew.setOnAction(new EventHandler<ActionEvent>() {
       @Override // Override the handle method
@@ -36,14 +36,14 @@ public class AnonymousHandlerDemo extends Application {
         System.out.println("Process Open");
       }
     });
-    
+
     btSave.setOnAction(new EventHandler<ActionEvent>() {
       @Override // Override the handle method
       public void handle(ActionEvent e) {
         System.out.println("Process Save");
       }
     });
-    
+
     btPrint.setOnAction(new EventHandler<ActionEvent>() {
       @Override // Override the handle method
       public void handle(ActionEvent e) {
@@ -57,7 +57,7 @@ public class AnonymousHandlerDemo extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

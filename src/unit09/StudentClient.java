@@ -32,19 +32,18 @@ public class StudentClient extends Application {
   public void start(Stage primaryStage) {
     GridPane pane = new GridPane();
     pane.add(new Label("Name"), 0, 0);
-    pane.add(tfName, 1, 0);    
+    pane.add(tfName, 1, 0);
     pane.add(new Label("Street"), 0, 1);
     pane.add(tfStreet, 1, 1);
     pane.add(new Label("City"), 0, 2);
-    
+
     HBox hBox = new HBox(2);
     pane.add(hBox, 1, 2);
-    hBox.getChildren().addAll(tfCity, new Label("State"), tfState,
-      new Label("Zip"), tfZip);
+    hBox.getChildren().addAll(tfCity, new Label("State"), tfState, new Label("Zip"), tfZip);
     pane.add(btRegister, 1, 3);
     GridPane.setHalignment(btRegister, HPos.RIGHT);
-    
-    pane.setAlignment(Pos.CENTER);   
+
+    pane.setAlignment(Pos.CENTER);
     tfName.setPrefColumnCount(15);
     tfStreet.setPrefColumnCount(15);
     tfCity.setPrefColumnCount(10);
@@ -52,7 +51,7 @@ public class StudentClient extends Application {
     tfZip.setPrefColumnCount(3);
 
     btRegister.setOnAction(new ButtonListener());
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(pane, 450, 200);
     primaryStage.setTitle("StudentClient"); // Set the stage title
@@ -69,8 +68,7 @@ public class StudentClient extends Application {
         Socket socket = new Socket(host, 8000);
 
         // Create an output stream to the server
-        ObjectOutputStream toServer =
-          new ObjectOutputStream(socket.getOutputStream());
+        ObjectOutputStream toServer = new ObjectOutputStream(socket.getOutputStream());
 
         // Get text field
         String name = tfName.getText().trim();
@@ -80,16 +78,14 @@ public class StudentClient extends Application {
         String zip = tfZip.getText().trim();
 
         // Create a Student object and send to the server
-        StudentAddress s =
-          new StudentAddress(name, street, city, state, zip);
+        StudentAddress s = new StudentAddress(name, street, city, state, zip);
         toServer.writeObject(s);
-      }
-      catch (IOException ex) {
+      } catch (IOException ex) {
         ex.printStackTrace();
       }
     }
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

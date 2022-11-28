@@ -5,9 +5,9 @@ public class Demo03P12 {
   public static void main(String[] args) {
     // Task 1: Show radius/area of two Circle objects with 2 ctors
     Circle c1 = new Circle();
-    //System.out.println(c1.getNumberOfObjects());
+    // System.out.println(c1.getNumberOfObjects());
     Circle c2 = new Circle(10.0);
-    //System.out.println(Shape.getNumberOfObjects());
+    // System.out.println(Shape.getNumberOfObjects());
     System.out.println(c1.toString());
     System.out.println(c2.toString());
     // Task 2: Show 2 rect objects
@@ -21,6 +21,7 @@ public class Demo03P12 {
   }
 }
 
+
 /** Task 1 
  * Create a Circle class which inherit from Shape
  *  Members:
@@ -31,33 +32,38 @@ public class Demo03P12 {
  */
 class Circle extends Shape implements ShapeIF {
   private double radius;
-  { //initialization block
+  { // initialization block
     super.setColor("Yellow");
   }
-  
+
   Circle() {
     super();
     radius = 1.0;
     super.setColor("Blue");
   }
+
   Circle(double radius) {
-    //this();
+    // this();
     this.radius = radius;
-//    super.setColor("Yellow");
+    // super.setColor("Yellow");
   }
+
   public double getRadius() {
     return radius;
   }
+
   public void setRadius(double radius) {
     this.radius = radius;
   }
+
   @Override
   public double getArea() {
     return Math.PI * radius * radius;
   }
+
   @Override
-  public String toString(){
-    return "Circle: Radius="+radius+ " Area=" + getArea() +"\n"+ super.toString();
+  public String toString() {
+    return "Circle: Radius=" + radius + " Area=" + getArea() + "\n" + super.toString();
   }
   /*
   @Override
@@ -66,6 +72,8 @@ class Circle extends Shape implements ShapeIF {
   }
   */
 }
+
+
 /** Task 2
  *  Modify Shape and add getArea;
  */
@@ -81,34 +89,41 @@ class Circle extends Shape implements ShapeIF {
 class Rect extends Shape implements ShapeIF {
   private double w;
   private double h;
+
   public Rect() {
     super();
     w = h = 1.0;
   }
+
   public Rect(double width, double height) {
     w = width;
     h = height;
   }
+
   public double getW() {
     return w;
   }
+
   public void setW(double width) {
     w = width;
   }
+
   public double getH() {
     return h;
   }
+
   public void setH(double height) {
     h = height;
   }
+
   @Override
   public double getArea() {
     return w * h;
   }
+
   @Override
   public String toString() {
-    return "Rect: width="+w+", height="+h+
-        " Area="+getArea()+"\n"+ super.toString();
+    return "Rect: width=" + w + ", height=" + h + " Area=" + getArea() + "\n" + super.toString();
   }
 }
 

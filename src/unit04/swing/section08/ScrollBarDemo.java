@@ -7,14 +7,11 @@ import unit04.MessagePanel;
 
 public class ScrollBarDemo extends JFrame {
   // Create horizontal and vertical scroll bars
-  private JScrollBar jscbHort =
-    new JScrollBar(JScrollBar.HORIZONTAL);
-  private JScrollBar jscbVert =
-    new JScrollBar(JScrollBar.VERTICAL);
+  private JScrollBar jscbHort = new JScrollBar(JScrollBar.HORIZONTAL);
+  private JScrollBar jscbVert = new JScrollBar(JScrollBar.VERTICAL);
 
   // Create a MessagePanel
-  private MessagePanel messagePanel =
-    new MessagePanel("Welcome to Java");
+  private MessagePanel messagePanel = new MessagePanel("Welcome to Java");
 
   public static void main(String[] args) {
     ScrollBarDemo frame = new ScrollBarDemo();
@@ -40,9 +37,8 @@ public class ScrollBarDemo extends JFrame {
         // QUESTION: what does the following code block do?
         double value = jscbHort.getValue();
         double maximumValue = jscbHort.getMaximum();
-        double newX = (value * messagePanel.getWidth() / 
-          maximumValue);
-        messagePanel.setXCoordinate((int)newX);
+        double newX = (value * messagePanel.getWidth() / maximumValue);
+        messagePanel.setXCoordinate((int) newX);
       }
     });
     jscbVert.addAdjustmentListener(new AdjustmentListener() {
@@ -51,9 +47,8 @@ public class ScrollBarDemo extends JFrame {
         // precision, use double
         double value = jscbVert.getValue();
         double maximumValue = jscbVert.getMaximum();
-        double newY = (value * messagePanel.getHeight() / 
-          maximumValue);
-        messagePanel.setYCoordinate((int)newY);
+        double newY = (value * messagePanel.getHeight() / maximumValue);
+        messagePanel.setYCoordinate((int) newY);
       }
     });
   }

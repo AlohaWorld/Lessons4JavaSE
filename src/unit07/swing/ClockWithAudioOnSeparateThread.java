@@ -33,7 +33,7 @@ public class ClockWithAudioOnSeparateThread extends JFrame implements ActionList
     try {
       path = directory.toURI().toURL().toString();
       System.out.println(path);
-      
+
       amAudio = new AudioClip(path + "am.wav");
       pmAudio = new AudioClip(path + "pm.wav");
     } catch (MalformedURLException e) {
@@ -97,15 +97,15 @@ public class ClockWithAudioOnSeparateThread extends JFrame implements ActionList
         pmAudio.play();
     }
   }
-  
+
   public ClockWithAudioOnSeparateThread() throws MalformedURLException {
     // Add clock and time label to the content pane
-    add(clock, BorderLayout.CENTER);    
+    add(clock, BorderLayout.CENTER);
     add(jlblDigitTime, BorderLayout.SOUTH);
 
     // Load audio clips
     initAudio();
-    
+
     // Start the timer
     timer.start();
   }

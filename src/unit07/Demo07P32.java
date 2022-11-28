@@ -1,9 +1,15 @@
 package unit07;
 
-import java.util.concurrent.*;
-import java.util.concurrent.locks.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-public class Demo07P31 {
+/**
+ * @desc 本例子展示如何使用Lock这个类进行线程间同步
+ */
+public class Demo07P32 {
   private static Account account = new Account();
 
   public static void main(String[] args) {
@@ -17,6 +23,7 @@ public class Demo07P31 {
 
   // A task for adding an amount to the account
   public static class DepositTask implements Runnable {
+    @Override
     public void run() {
       while (true) {
         account.deposit((int) (Math.random() * 10) + 1);
@@ -31,6 +38,7 @@ public class Demo07P31 {
 
   // A task for subtracting an amount from the account
   public static class WithdrawTask implements Runnable {
+    @Override
     public void run() {
       while (true) {
         account.withdraw((int) (Math.random() * 10) + 1);
@@ -49,10 +57,10 @@ public class Demo07P31 {
 
     // get a static Lock object. Attention: not using new
     Lock lock = new ReentrantLock();
-    
+
     // Create a Condition object with lock.newXXX
     Condition cond = lock.newCondition();
-    
+
     public int getBalance() {
       return balance;
     }
@@ -64,10 +72,10 @@ public class Demo07P31 {
       this.balance += amount;
       System.out.println("Deposit " + amount + "\t\t\t\t\t" + getBalance());
       // notifyAll();
-      
+
       // Signal thread waiting on conditions: conditionObj.signalXXX
       cond.signalAll();
-      
+
       // unlock
       lock.unlock();
     }
@@ -75,17 +83,18 @@ public class Demo07P31 {
     public void withdraw(int amount) {
       // Acquire a lock
       lock.lock();
-        try { 
-          while (balance < amount) 
-            // wait();
-            // Wait on condition: conditionObj.await   
-            cond.await();
-        } catch (InterruptedException ex) {
-        ex.printStackTrace(); }
+      try {
+        while (balance < amount)
+          // wait();
+          // Wait on condition: conditionObj.await
+          cond.await();
+      } catch (InterruptedException ex) {
+        ex.printStackTrace();
+      }
 
       balance -= amount;
       System.out.println("\t\t\tWithdraw " + amount + "\t\t" + getBalance());
-      
+
       // release lock
       lock.unlock();
     }

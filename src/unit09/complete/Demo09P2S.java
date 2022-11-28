@@ -31,7 +31,7 @@ public class Demo09P2S {
 
       // 从客户端接收圆的半径（通过DataInput流读取）
       double r;
-      while ( (r = in.readDouble()) > 0) {
+      while ((r = in.readDouble()) > 0) {
         // 计算圆面积
         var area = r * r * Math.PI;
         // 把面积发回给客户端
@@ -40,11 +40,9 @@ public class Demo09P2S {
         System.out.println("\tRadius is : " + r);
         System.out.println("\tArea   is : " + area);
       } // end while
-    }
-    catch(IOException ex) {
+    } catch (IOException ex) {
       ex.printStackTrace();
-    }
-    finally {
+    } finally {
       try {
         socket.close();
       } catch (IOException e) {

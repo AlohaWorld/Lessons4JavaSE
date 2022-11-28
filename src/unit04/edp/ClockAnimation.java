@@ -19,13 +19,12 @@ public class ClockAnimation extends Application {
     EventHandler<ActionEvent> eventHandler = e -> {
       clock.setCurrentTime(); // Set a new clock time
     };
-    
+
     // Create an animation for a running clock
-    Timeline animation = new Timeline(
-      new KeyFrame(Duration.millis(1000), eventHandler));
+    Timeline animation = new Timeline(new KeyFrame(Duration.millis(1000), eventHandler));
     animation.setCycleCount(Timeline.INDEFINITE);
     animation.play(); // Start animation
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(clock, 250, 250);
     primaryStage.setTitle("ClockAnimation"); // Set the stage title

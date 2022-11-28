@@ -18,16 +18,14 @@ public class StudentServer {
       System.out.println("Server started ");
 
       // Create an object ouput stream
-      outputToFile = new ObjectOutputStream(
-        new FileOutputStream("student.dat", true));
+      outputToFile = new ObjectOutputStream(new FileOutputStream("student.dat", true));
 
       while (true) {
         // Listen for a new connection request
         Socket socket = serverSocket.accept();
 
         // Create an input stream from the socket
-        inputFromClient =
-          new ObjectInputStream(socket.getInputStream());
+        inputFromClient = new ObjectInputStream(socket.getInputStream());
 
         // Read from input
         Object object = inputFromClient.readObject();
@@ -36,19 +34,15 @@ public class StudentServer {
         outputToFile.writeObject(object);
         System.out.println("A new student object is stored");
       }
-    }
-    catch(ClassNotFoundException ex) {
+    } catch (ClassNotFoundException ex) {
       ex.printStackTrace();
-    }
-    catch(IOException ex) {
+    } catch (IOException ex) {
       ex.printStackTrace();
-    }
-    finally {
+    } finally {
       try {
         inputFromClient.close();
         outputToFile.close();
-      }
-      catch (Exception ex) {
+      } catch (Exception ex) {
         ex.printStackTrace();
       }
     }

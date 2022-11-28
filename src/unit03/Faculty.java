@@ -1,13 +1,16 @@
 package unit03;
 
-public class Faculty extends Employee{
+public class Faculty extends Employee {
   public static void main(String[] args) {
     new Faculty();
   }
+
   public Faculty() {
     System.out.println("Faculty's no-arg constructor is invoked");
   }
 }
+
+
 class Employee extends Person {
   public Employee() {
     this("(2) Invoke Employee’s overloaded constructor");
@@ -18,6 +21,8 @@ class Employee extends Person {
     System.out.println(s);
   }
 }
+
+
 class Person {
   public Person() {
     System.out.println("(1) Person's no-arg constructor is invoked");

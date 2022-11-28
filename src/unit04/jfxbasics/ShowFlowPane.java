@@ -18,20 +18,18 @@ public class ShowFlowPane extends Application {
     pane.setVgap(5);
 
     // Place nodes in the pane
-    pane.getChildren().addAll(new Label("First Name:"), 
-      new TextField(), new Label("MI:"));
+    pane.getChildren().addAll(new Label("First Name:"), new TextField(), new Label("MI:"));
     TextField tfMi = new TextField();
     tfMi.setPrefColumnCount(1);
-    pane.getChildren().addAll(tfMi, new Label("Last Name:"),
-      new TextField());
-    
+    pane.getChildren().addAll(tfMi, new Label("Last Name:"), new TextField());
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(pane, 200, 250);
     primaryStage.setTitle("ShowFlowPane"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

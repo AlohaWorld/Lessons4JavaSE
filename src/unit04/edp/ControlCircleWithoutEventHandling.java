@@ -19,7 +19,7 @@ public class ControlCircleWithoutEventHandling extends Application {
     circle.setStroke(Color.BLACK);
     circle.setFill(Color.WHITE);
     pane.getChildren().add(circle);
-    
+
     HBox hBox = new HBox();
     hBox.setSpacing(10);
     hBox.setAlignment(Pos.CENTER);
@@ -32,14 +32,14 @@ public class ControlCircleWithoutEventHandling extends Application {
     borderPane.setCenter(pane);
     borderPane.setBottom(hBox);
     BorderPane.setAlignment(hBox, Pos.CENTER);
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(borderPane, 200, 150);
     primaryStage.setTitle("ControlCircle"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  
+
   /**
    * The main method is only needed for the IDE with limited
    * JavaFX support. Not needed for running from the command line.

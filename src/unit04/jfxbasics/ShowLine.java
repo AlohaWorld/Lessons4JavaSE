@@ -9,7 +9,7 @@ import javafx.scene.shape.Line;
 
 public class ShowLine extends Application {
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {   
+  public void start(Stage primaryStage) {
     // Create a scene and place it in the stage
     Scene scene = new Scene(new LinePane(), 200, 200);
     primaryStage.setTitle("ShowLine"); // Set the stage title
@@ -17,6 +17,7 @@ public class ShowLine extends Application {
     primaryStage.show(); // Display the stage
   }
 }
+
 
 class LinePane extends Pane {
   public LinePane() {
@@ -26,7 +27,7 @@ class LinePane extends Pane {
     line1.setStrokeWidth(5);
     line1.setStroke(Color.GREEN);
     getChildren().add(line1);
-    
+
     Line line2 = new Line(10, 10, 10, 10);
     line2.startXProperty().bind(widthProperty().subtract(10));
     line2.endYProperty().bind(heightProperty().subtract(10));

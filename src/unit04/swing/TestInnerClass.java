@@ -6,9 +6,10 @@ public class TestInnerClass {
 
   public class InnerClass {
     InnerClass(int i) {
-      System.out.println("Inner Class: "+i);
+      System.out.println("Inner Class: " + i);
     }
   }
+
   public TestInnerClass() {
     innerClass2 = new InnerClass(2);
   }
@@ -17,7 +18,7 @@ public class TestInnerClass {
     TestInnerClass t = new TestInnerClass();
     innerClass2 = new InnerClass(4);
     @SuppressWarnings("unused")
-    InnerClass innerClass3 = t.new InnerClass(3); //new InnerClass(3);
+    InnerClass innerClass3 = t.new InnerClass(3); // new InnerClass(3);
   }
 
 }

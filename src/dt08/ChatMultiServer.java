@@ -7,6 +7,7 @@ import java.net.Socket;
 
 public class ChatMultiServer {
   private static int clientNum = 0;
+
   public static void main(String[] args) throws IOException, InterruptedException {
     final int port = 9001;
     ServerSocket ss = new ServerSocket(port);
@@ -21,13 +22,17 @@ public class ChatMultiServer {
     } // end while(
   }
 }
+
+
 class ChatThread extends Thread {
   private Socket socket;
   private int clientNum;
+
   public ChatThread(Socket socket, int clientNum) {
     this.socket = socket;
     this.clientNum = clientNum;
   }
+
   @Override
   public void run() {
     try {

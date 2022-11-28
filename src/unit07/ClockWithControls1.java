@@ -14,7 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 public class ClockWithControls1 extends Application {
-  
+
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     // Create two buttons to start/stop the clock
@@ -25,26 +25,25 @@ public class ClockWithControls1 extends Application {
     HBox lpane = new HBox(30);
     lpane.getChildren().addAll(btnPause, btnContinue);
     lpane.setAlignment(Pos.CENTER);
-    
+
     // Create a clock
     ClockPane clock = new ClockPane();
-    
+
     // Create a panel to hold the clock pane and control buttons
     BorderPane pane = new BorderPane();
     pane.setCenter(clock);
     pane.setBottom(lpane);
-    
+
     // Create a handler for animation
     EventHandler<ActionEvent> eventHandler = e -> {
       clock.setCurrentTime(); // Set a new clock time
     };
-    
+
     // Create an animation for a running clock
-    Timeline animation = new Timeline(
-      new KeyFrame(Duration.millis(1000), eventHandler));
+    Timeline animation = new Timeline(new KeyFrame(Duration.millis(1000), eventHandler));
     animation.setCycleCount(Timeline.INDEFINITE);
     animation.play(); // Start animation
-    
+
 
     // Set Action Handler for Buttons
     btnPause.setOnAction(e -> {
@@ -53,7 +52,7 @@ public class ClockWithControls1 extends Application {
     btnContinue.setOnAction(e -> {
       animation.play();
     });
-    
+
     // Create a scene and place it in the stage
     Scene scene = new Scene(pane, 250, 250);
     primaryStage.setTitle("ClockAnimation"); // Set the stage title

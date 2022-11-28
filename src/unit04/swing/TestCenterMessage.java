@@ -21,6 +21,7 @@ public class TestCenterMessage extends JFrame {
   }
 }
 
+
 class CenterMessage extends JPanel {
   /** Paint the message */
   protected void paintComponent(Graphics g) {

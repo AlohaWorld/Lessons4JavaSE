@@ -11,12 +11,11 @@ public class RadioButtonDemo extends CheckBoxDemo {
   @Override // Override the getPane() method in the super class
   protected BorderPane getPane() {
     BorderPane pane = super.getPane();
-    
+
     VBox paneForRadioButtons = new VBox(20);
-    paneForRadioButtons.setPadding(new Insets(5, 5, 5, 5)); 
+    paneForRadioButtons.setPadding(new Insets(5, 5, 5, 5));
     paneForRadioButtons.setStyle("-fx-border-color: green");
-    paneForRadioButtons.setStyle
-      ("-fx-border-width: 2px; -fx-border-color: green");
+    paneForRadioButtons.setStyle("-fx-border-width: 2px; -fx-border-color: green");
     RadioButton rbRed = new RadioButton("Red");
     RadioButton rbGreen = new RadioButton("Green");
     RadioButton rbBlue = new RadioButton("Blue");
@@ -27,13 +26,13 @@ public class RadioButtonDemo extends CheckBoxDemo {
     rbRed.setToggleGroup(group);
     rbGreen.setToggleGroup(group);
     rbBlue.setToggleGroup(group);
-    
+
     rbRed.setOnAction(e -> {
       if (rbRed.isSelected()) {
         text.setFill(Color.RED);
       }
     });
-    
+
     rbGreen.setOnAction(e -> {
       if (rbGreen.isSelected()) {
         text.setFill(Color.GREEN);
@@ -45,7 +44,7 @@ public class RadioButtonDemo extends CheckBoxDemo {
         text.setFill(Color.BLUE);
       }
     });
-    
+
     return pane;
   }
 

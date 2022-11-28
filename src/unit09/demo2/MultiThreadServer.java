@@ -6,14 +6,12 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-/*
- * Questions: 
- * Which line registers an event listener? 
- * Which line handles the event? 
- * Which line connects to client? 
- * Which line creates a thread object? 
- * Which line get information from server?
- */
+/* Questions:
+ * Which line registers an event listener?
+ * Which line handles the event?
+ * Which line connects to client?
+ * Which line creates a thread object?
+ * Which line get information from server? */
 
 public class MultiThreadServer extends JFrame {
   // Text area for displaying contents
